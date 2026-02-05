@@ -141,6 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Hero Section */
+/* Hero Section - Enhanced Animations */
 .hero {
     position: relative;
     height: calc(100vh - 110px);
@@ -150,6 +151,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     text-align: center;
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -158,7 +160,18 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.4);
+    background: linear-gradient(
+        135deg,
+        rgba(10, 14, 39, 0.7) 0%,
+        rgba(10, 14, 39, 0.4) 50%,
+        rgba(10, 14, 39, 0.7) 100%
+    );
+    animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 0.5; }
 }
 
 .hero-content {
@@ -167,6 +180,18 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     max-width: 800px;
     padding: 20px;
+    animation: fadeInUp 1s ease;
+}
+
+/* Logo Circle with Rotating Border */
+.logo-circle-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo-circle {
@@ -177,58 +202,379 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 30px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    box-shadow: 
+        0 10px 40px rgba(0,0,0,0.3),
+        0 0 60px rgba(255,82,82,0.2),
+        inset 0 0 30px rgba(0,0,0,0.1);
     padding: 20px;
+    position: relative;
+    z-index: 2;
+    animation: logoPulse 3s ease-in-out infinite;
 }
 
 .logo-circle img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    animation: logoFloat 4s ease-in-out infinite;
 }
 
+/* Rotating Lines Around Logo */
+.rotating-border {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #ff5252;
+    border-bottom-color: #1976d2;
+    animation: rotate 3s linear infinite;
+}
+
+.rotating-border:nth-child(2) {
+    width: 220px;
+    height: 220px;
+    border-left-color: #ff5252;
+    border-right-color: #1976d2;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    animation: rotateReverse 4s linear infinite;
+}
+
+.rotating-border:nth-child(3) {
+    width: 240px;
+    height: 240px;
+    border: 1px dashed rgba(255,255,255,0.3);
+    animation: rotate 6s linear infinite;
+}
+
+/* Dots around logo */
+.orbit-dots {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    animation: rotate 8s linear infinite;
+}
+
+.orbit-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #ff5252;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff5252;
+}
+
+.orbit-dot:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.orbit-dot:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); background: #1976d2; box-shadow: 0 0 10px #1976d2; }
+.orbit-dot:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); }
+.orbit-dot:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); background: #1976d2; box-shadow: 0 0 10px #1976d2; }
+
+/* Animations */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateReverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes logoPulse {
+    0%, 100% { 
+        box-shadow: 
+            0 10px 40px rgba(0,0,0,0.3),
+            0 0 60px rgba(255,82,82,0.2);
+    }
+    50% { 
+        box-shadow: 
+            0 15px 50px rgba(0,0,0,0.4),
+            0 0 80px rgba(255,82,82,0.4),
+            0 0 100px rgba(30,136,229,0.2);
+    }
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Tagline with Letter Animation */
 .tagline {
     font-size: 14px;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     margin-bottom: 20px;
     font-weight: 600;
-    opacity: 0.95;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.5s forwards;
+    position: relative;
+    display: inline-block;
 }
 
+.tagline::before,
+.tagline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff5252, transparent);
+    animation: lineGrow 1s ease 1s forwards;
+    opacity: 0;
+}
+
+.tagline::before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.tagline::after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+@keyframes lineGrow {
+    from { width: 0; opacity: 0; }
+    to { width: 50px; opacity: 1; }
+}
+
+/* Main Heading with Split Animation */
 .hero h1 {
     font-size: 64px;
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 25px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.7s forwards;
+    position: relative;
 }
 
+.hero h1 span {
+    display: inline-block;
+    opacity: 0;
+    animation: letterReveal 0.6s ease forwards;
+}
+
+.hero h1 span:nth-child(1) { animation-delay: 0.8s; }
+.hero h1 span:nth-child(2) { animation-delay: 0.9s; }
+.hero h1 span:nth-child(3) { animation-delay: 1.0s; }
+
+@keyframes letterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px) rotateX(-90deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+/* Categories with Typewriter Effect */
 .categories {
     font-size: 18px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin-bottom: 40px;
-    opacity: 0.9;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 1.2s forwards;
+    position: relative;
+    overflow: hidden;
 }
 
+.categories::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: #ff5252;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Explore Button - Sexy Animation */
 .explore-btn {
     display: inline-block;
-    background: #ff5252;
+    background: linear-gradient(135deg, #ff5252, #d32f2f);
     color: white;
-    padding: 16px 40px;
+    padding: 18px 45px;
     border-radius: 30px;
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(255,82,82,0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 10px 30px rgba(255,82,82,0.4),
+        0 0 0 0 rgba(255,82,82,0.7);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 1.4s forwards, pulseRing 2s infinite 2s;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+}
+
+.explore-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: left 0.6s;
+}
+
+.explore-btn:hover::before {
+    left: 100%;
 }
 
 .explore-btn:hover {
-    background: #f44336;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255,82,82,0.5);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 
+        0 20px 40px rgba(255,82,82,0.5),
+        0 0 30px rgba(255,82,82,0.3);
+}
+
+.explore-btn:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+@keyframes pulseRing {
+    0% {
+        box-shadow: 
+            0 10px 30px rgba(255,82,82,0.4),
+            0 0 0 0 rgba(255,82,82,0.7);
+    }
+    70% {
+        box-shadow: 
+            0 10px 30px rgba(255,82,82,0.4),
+            0 0 0 20px rgba(255,82,82,0);
+    }
+    100% {
+        box-shadow: 
+            0 10px 30px rgba(255,82,82,0.4),
+            0 0 0 0 rgba(255,82,82,0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating Particles in Background */
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    animation: float 15s infinite;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 20s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 25s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 18s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 22s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 28s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 20s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 2s; animation-duration: 24s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 4s; animation-duration: 19s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 1s; animation-duration: 26s; }
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .hero h1 {
+        font-size: 42px;
+    }
+    
+    .logo-circle-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .logo-circle {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .rotating-border {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .rotating-border:nth-child(2) {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .rotating-border:nth-child(3) {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .orbit-dots {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .categories {
+        font-size: 14px;
+    }
+    
+    .tagline::before,
+    .tagline::after {
+        display: none;
+    }
 }
 
 /* About Us Section */
