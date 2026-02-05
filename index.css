@@ -15,6 +15,14 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ... rest of your CSS ... */
+
 /* Rest of your CSS remains exactly the same... */
 
 * {
@@ -1868,4 +1876,238 @@ h1, h2, h3, h4, h5, h6 {
     .contact-form {
         padding: 25px;
     }
+}
+
+/* Scroll Animation Base Classes */
+.scroll-hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Different Animation Types */
+.scroll-fade-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-fade-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-rotate {
+    opacity: 0;
+    transform: rotate(-10deg) translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When visible */
+.scroll-fade-left.scroll-visible,
+.scroll-fade-right.scroll-visible,
+.scroll-scale.scroll-visible,
+.scroll-rotate.scroll-visible {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0) translateY(0);
+}
+
+/* Stagger Delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* Hero Section - Parallax on Scroll */
+.hero {
+    position: relative;
+    height: calc(100vh - 110px);
+    min-height: 600px;
+    background: url('assets/hero_placeholder.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background-attachment: fixed; /* Parallax effect */
+}
+
+/* Navbar - Show/Hide on Scroll */
+.navbar {
+    background: #0a0e27;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    transform: translateY(-100%);
+}
+
+.navbar.visible {
+    transform: translateY(0);
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+}
+
+.navbar.scrolled {
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 10px 0;
+}
+
+/* Top Bar - Hide on Scroll Down */
+.top-bar {
+    background: linear-gradient(90deg, #1e88e5 0%, #0d47a1 100%);
+    color: white;
+    padding: 10px 0;
+    font-size: 13px;
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1001;
+}
+
+.top-bar.hidden {
+    transform: translateY(-100%);
+}
+
+/* Progress Bar on Scroll */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff5252, #1976d2);
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.1s;
+}
+
+/* About Us Section - Counter Animation */
+.counter {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ff5252;
+    display: inline-block;
+}
+
+/* Service Cards - Flip on Scroll */
+.service-card.scroll-visible {
+    animation: cardFlip 0.8s ease;
+}
+
+@keyframes cardFlip {
+    0% {
+        opacity: 0;
+        transform: perspective(1000px) rotateY(-90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(1000px) rotateY(0);
+    }
+}
+
+/* Project Cards - Slide In from Sides */
+.project-card:nth-child(odd).scroll-hidden {
+    transform: translateX(-100px);
+}
+
+.project-card:nth-child(even).scroll-hidden {
+    transform: translateX(100px);
+}
+
+/* Floating Elements Parallax */
+.float-element {
+    transition: transform 0.1s ease-out;
+}
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section Reveal Animation */
+.section-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-reveal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0f1419;
+    z-index: 10;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-reveal.revealed::before {
+    transform: scaleY(0);
+}
+
+/* Text Reveal Line by Line */
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-reveal.scroll-visible span {
+    transform: translateY(0);
+}
+
+/* Image Reveal */
+.image-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ff5252;
+    transform: translateX(-100%);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-reveal.scroll-visible::after {
+    transform: translateX(100%);
+}
+
+/* Bounce on Scroll */
+.bounce-in {
+    opacity: 0;
+    transform: scale(0.3);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.bounce-in.scroll-visible {
+    opacity: 1;
+    transform: scale(1);
 }

@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
@@ -35,133 +38,131 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <!-- Hero Section -->
-<section class="hero">
-    <div class="hero-overlay"></div>
-    
-    <!-- Floating Particles -->
-    <div class="hero-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-    
-    <div class="hero-content">
-        <div class="logo-circle-wrapper">
-            <div class="rotating-border"></div>
-            <div class="rotating-border"></div>
-            <div class="rotating-border"></div>
-            <div class="orbit-dots">
-                <div class="orbit-dot"></div>
-                <div class="orbit-dot"></div>
-                <div class="orbit-dot"></div>
-                <div class="orbit-dot"></div>
-            </div>
-            <div class="logo-circle">
-                <img src="assets/logo-ar.png" alt="Aarambh Realtors">
-            </div>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        
+        <!-- Floating Particles -->
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
         </div>
         
-        <p class="tagline">YOUR TRUSTED REAL ESTATE PARTNER</p>
-        <h1>Building Trust,<br>Delivering Dreams</h1>
-        <p class="categories">Residential | Commercial | Farmhouse | Plots</p>
-        <a href="#" class="explore-btn">Explore Projects</a>
-    </div>
-</section>
+        <div class="hero-content">
+            <div class="logo-circle-wrapper">
+                <div class="rotating-border"></div>
+                <div class="rotating-border"></div>
+                <div class="rotating-border"></div>
+                <div class="orbit-dots">
+                    <div class="orbit-dot"></div>
+                    <div class="orbit-dot"></div>
+                    <div class="orbit-dot"></div>
+                    <div class="orbit-dot"></div>
+                </div>
+                <div class="logo-circle">
+                    <img src="assets/logo-ar.png" alt="Aarambh Realtors">
+                </div>
+            </div>
+            
+            <p class="tagline">YOUR TRUSTED REAL ESTATE PARTNER</p>
+            <h1>Building Trust,<br>Delivering Dreams</h1>
+            <p class="categories">Residential | Commercial | Farmhouse | Plots</p>
+            <a href="#projects" class="explore-btn">Explore Projects</a>
+        </div>
+    </section>
 
     <!-- About Us Section -->
-    <section class="about-us">
+    <section class="about-us section-reveal scroll-hidden" id="about">
         <div class="container">
-            <h2 class="section-title">ABOUT US</h2>
-            <div class="title-underline"></div>
-            <h3 class="subtitle">Building Trust, Delivering Excellence</h3>
-            <p class="about-text">
+            <h2 class="section-title scroll-hidden">ABOUT US</h2>
+            <div class="title-underline scroll-hidden delay-1"></div>
+            <h3 class="subtitle scroll-hidden delay-2">Building Trust, Delivering Excellence</h3>
+            <p class="about-text scroll-hidden delay-3">
                 Aarambh Realtors is a premier real estate consultancy firm dedicated to helping you find your perfect property. With years of experience and a client-centric approach, we specialize in residential, commercial, and investment properties.
             </p>
-            <a href="#" class="learn-more-btn">Learn More About Us</a>
+            <a href="#" class="learn-more-btn scroll-hidden delay-4">Learn More About Us</a>
         </div>
     </section>
 
     <!-- Our Services Section -->
-    <!-- Our Services Section -->
-<section class="our-services">
-    <!-- Floating Particles -->
-    <div class="services-particles">
-        <div class="s-particle"></div>
-        <div class="s-particle"></div>
-        <div class="s-particle"></div>
-        <div class="s-particle"></div>
-        <div class="s-particle"></div>
-    </div>
-    
-    <div class="container">
-        <h2 class="section-title light">OUR SERVICES</h2>
-        <div class="title-underline"></div>
-        <h3 class="subtitle light">Comprehensive Real Estate Solutions</h3>
+    <section class="our-services section-reveal" id="services">
+        <!-- Floating Particles -->
+        <div class="services-particles">
+            <div class="s-particle"></div>
+            <div class="s-particle"></div>
+            <div class="s-particle"></div>
+            <div class="s-particle"></div>
+            <div class="s-particle"></div>
+        </div>
         
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="corner-br"></div>
-                <div class="service-icon">
-                    <i class="fas fa-home"></i>
+        <div class="container">
+            <h2 class="section-title light scroll-hidden">OUR SERVICES</h2>
+            <div class="title-underline scroll-hidden delay-1"></div>
+            <h3 class="subtitle light scroll-hidden delay-2">Comprehensive Real Estate Solutions</h3>
+            
+            <div class="services-grid">
+                <div class="service-card scroll-scale delay-1">
+                    <div class="corner-br"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4>Residential</h4>
+                    <p>Find your dream home with our wide range of residential properties.</p>
                 </div>
-                <h4>Residential</h4>
-                <p>Find your dream home with our wide range of residential properties.</p>
-            </div>
 
-            <div class="service-card featured">
-                <div class="corner-br"></div>
-                <div class="service-icon active">
-                    <i class="fas fa-building"></i>
+                <div class="service-card featured scroll-scale delay-2">
+                    <div class="corner-br"></div>
+                    <div class="service-icon active">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h4>Commercial</h4>
+                    <p>Premium office spaces and retail shops for your business growth.</p>
                 </div>
-                <h4>Commercial</h4>
-                <p>Premium office spaces and retail shops for your business growth.</p>
-            </div>
 
-            <div class="service-card">
-                <div class="corner-br"></div>
-                <div class="service-icon">
-                    <i class="fas fa-tree"></i>
+                <div class="service-card scroll-scale delay-3">
+                    <div class="corner-br"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h4>Farmhouse</h4>
+                    <p>Luxury farmhouses for a peaceful and serene lifestyle.</p>
                 </div>
-                <h4>Farmhouse</h4>
-                <p>Luxury farmhouses for a peaceful and serene lifestyle.</p>
-            </div>
 
-            <div class="service-card">
-                <div class="corner-br"></div>
-                <div class="service-icon">
-                    <i class="fas fa-map-marked-alt"></i>
+                <div class="service-card scroll-scale delay-4">
+                    <div class="corner-br"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4>Plots</h4>
+                    <p>Invest in prime land at strategic locations.</p>
                 </div>
-                <h4>Plots</h4>
-                <p>Invest in prime land at strategic locations.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Featured Projects Section -->
-    <section class="featured-projects">
+    <section class="featured-projects section-reveal" id="projects">
         <div class="container">
-            <h2 class="section-title light">FEATURED PROJECTS</h2>
-            <div class="title-underline red"></div>
-            <h3 class="subtitle light">Handpicked properties just for you</h3>
+            <h2 class="section-title light scroll-hidden">FEATURED PROJECTS</h2>
+            <div class="title-underline red scroll-hidden delay-1"></div>
+            <h3 class="subtitle light scroll-hidden delay-2">Handpicked properties just for you</h3>
             
-            <div class="projects-slider-container">
+            <div class="projects-slider-container scroll-hidden delay-3">
                 <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                 
                 <div class="projects-slider">
@@ -262,7 +263,7 @@
                 <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
             </div>
 
-            <div class="slider-dots">
+            <div class="slider-dots scroll-hidden delay-4">
                 <span class="dot active"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -272,18 +273,18 @@
                 <span class="dot"></span>
             </div>
 
-            <a href="#" class="view-all-btn">View All Projects</a>
+            <a href="#" class="view-all-btn scroll-hidden delay-5">View All Projects</a>
         </div>
     </section>
 
     <!-- Get In Touch Section -->
-    <section class="get-in-touch">
+    <section class="get-in-touch section-reveal" id="contact">
         <div class="container">
-            <h2 class="section-title">GET IN TOUCH</h2>
-            <div class="title-underline red"></div>
-            <p class="section-desc">Have a question? Interested in a property? Send us a message.</p>
+            <h2 class="section-title scroll-hidden">GET IN TOUCH</h2>
+            <div class="title-underline red scroll-hidden delay-1"></div>
+            <p class="section-desc scroll-hidden delay-2">Have a question? Interested in a property? Send us a message.</p>
             
-            <div class="contact-form-container">
+            <div class="contact-form-container scroll-hidden delay-3">
                 <form class="contact-form">
                     <input type="text" placeholder="Name" required>
                     <input type="tel" placeholder="Phone" required>
@@ -296,7 +297,7 @@
     </section>
 
     <!-- Map Section -->
-    <section class="map-section">
+    <section class="map-section scroll-hidden">
         <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5484403!2d77.3712129!3d28.6270569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5bb1ced8969%3A0xf65a390267e58b8f!2sAarambh%20Realtors!5e0!3m2!1sen!2sin!4v1707123456789!5m2!1sen!2sin" 
             width="100%" 
@@ -309,26 +310,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer scroll-hidden">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
+                <div class="footer-brand scroll-fade-left">
                     <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="footer-logo">
                     <p>Trusted real estate company delivering residential and commercial property solutions.</p>
                 </div>
                 
-                <div class="footer-links">
+                <div class="footer-links scroll-hidden delay-1">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-contact">
+                <div class="footer-contact scroll-fade-right">
                     <h4>Contact Us</h4>
                     <p><i class="fas fa-map-marker-alt"></i> 371, 7th Floor, Tower B, The Corenthum, Sector 62, Noida, Uttar Pradesh, 201309</p>
                     <p><i class="fas fa-phone"></i> 9810319001, 9654674199</p>
@@ -336,7 +337,7 @@
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="footer-bottom scroll-hidden delay-2">
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -366,7 +367,7 @@
         const nextBtn = document.querySelector('.next-btn');
         
         let currentIndex = 0;
-        const cardWidth = 380; // card width + gap
+        const cardWidth = 380;
         const visibleCards = 3;
         const maxIndex = cards.length - visibleCards;
         
@@ -387,10 +388,8 @@
             updateSlider();
         }
         
-        // Auto scroll every 3 seconds
         let autoScroll = setInterval(nextSlide, 3000);
         
-        // Reset auto-scroll on manual navigation
         function resetAutoScroll() {
             clearInterval(autoScroll);
             autoScroll = setInterval(nextSlide, 3000);
@@ -414,10 +413,88 @@
             });
         });
         
-        // Pause on hover
         track.addEventListener('mouseenter', () => clearInterval(autoScroll));
         track.addEventListener('mouseleave', () => {
             autoScroll = setInterval(nextSlide, 3000);
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('scroll-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-hidden, .scroll-fade-left, .scroll-fade-right, .scroll-scale, .scroll-rotate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar Show/Hide on Scroll
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        const topBar = document.querySelector('.top-bar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+                navbar.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                navbar.classList.remove('visible');
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 200) {
+                topBar.classList.add('hidden');
+            } else {
+                topBar.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const heroContent = document.querySelector('.hero-content');
+            
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.backgroundPositionY = (scrolled * 0.5) + 'px';
+                if (heroContent) {
+                    heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+                    heroContent.style.opacity = 1 - (scrolled / 700);
+                }
+            }
+        });
+
+        // Section Reveal Observer
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.section-reveal').forEach(section => {
+            sectionObserver.observe(section);
         });
     </script>
 </body>
