@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Aarambh Realtors</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Google Sans', sans-serif;
+            background: #0a0e27;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .splash-container {
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .splash-logo {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 50%;
+            padding: 20px;
+            box-shadow: 0 0 60px rgba(255,82,82,0.3), 0 0 100px rgba(30,136,229,0.2);
+            animation: pulse 2s ease-in-out infinite, scaleIn 0.8s ease;
+            object-fit: contain;
+        }
+
+        .splash-text {
+            margin-top: 30px;
+            color: white;
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: slideUp 0.8s ease 0.5s forwards;
+        }
+
+        .splash-subtext {
+            margin-top: 10px;
+            color: #9aa5b8;
+            font-size: 14px;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: slideUp 0.8s ease 0.7s forwards;
+        }
+
+        .loading-bar {
+            width: 200px;
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            margin: 40px auto 0;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 0.5s ease 1s forwards;
+        }
+
+        .loading-progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff5252, #1976d2);
+            border-radius: 3px;
+            animation: loadProgress 2.5s ease-in-out forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            0% { 
+                transform: scale(0.5); 
+                opacity: 0; 
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% { 
+                transform: scale(1); 
+                opacity: 1; 
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                box-shadow: 0 0 60px rgba(255,82,82,0.3), 0 0 100px rgba(30,136,229,0.2);
+            }
+            50% { 
+                box-shadow: 0 0 80px rgba(255,82,82,0.5), 0 0 120px rgba(30,136,229,0.4);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* Fade out animation */
+        .fade-out {
+            animation: fadeOut 0.5s ease forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .splash-logo {
+                width: 150px;
+                height: 150px;
+                padding: 15px;
+            }
+            
+            .splash-text {
+                font-size: 18px;
+            }
+            
+            .splash-subtext {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-container" id="splash">
+        <div class="logo-wrapper">
+            <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="splash-logo">
+        </div>
+        
+        <h1 class="splash-text">Aarambh Realtors</h1>
+        <p class="splash-subtext">Building Trust, Delivering Dreams</p>
+        
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to main website after 2.5 seconds
+        setTimeout(() => {
+            document.getElementById('splash').classList.add('fade-out');
+            
+            // Wait for fade out animation then redirect
+            setTimeout(() => {
+                window.location.href = 'home.html';
+            }, 500);
+        }, 2500);
+    </script>
+</body>
+</html>
