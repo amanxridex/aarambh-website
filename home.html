@@ -541,12 +541,12 @@
         // Modal Functions
         function openModal() {
             document.getElementById('enquiryModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.body.classList.add('modal-open');
         }
 
         function closeModal() {
             document.getElementById('enquiryModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            document.body.classList.remove('modal-open');
         }
 
         function submitEnquiry(e) {

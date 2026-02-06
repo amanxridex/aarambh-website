@@ -2632,3 +2632,32 @@ html, body {
         height: 60px;
     }
 }
+
+/* Remove double scrollbar issue */
+html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure only one scrollbar exists */
+body {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Remove any fixed height causing issues */
+.hero, .about-us, .our-services, .featured-projects, .get-in-touch {
+    min-height: auto;
+    height: auto;
+}
+
+/* Fix for modal causing body scroll issues */
+body.modal-open {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
