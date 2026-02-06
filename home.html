@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Custom Scrollbar -->
+    <div class="custom-scrollbar" id="customScrollbar"></div>
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -400,6 +402,40 @@
     </div>
 
     <script>
+
+        // Custom Scrollbar Functionality
+        const scrollbar = document.getElementById('customScrollbar');
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+        function updateScrollbar() {
+            const scrollPercent = (window.scrollY / docHeight) * 100;
+            scrollbar.style.height = `${(window.innerHeight / document.documentElement.scrollHeight) * 100}%`;
+            scrollbar.style.top = `${scrollPercent}%`;
+        }
+
+        window.addEventListener('scroll', updateScrollbar);
+        window.addEventListener('resize', updateScrollbar);
+        updateScrollbar();
+
+        // Make scrollbar draggable
+        let isDragging = false;
+
+        scrollbar.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            document.body.style.userSelect = 'none';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const scrollPercent = e.clientY / window.innerHeight;
+            window.scrollTo(0, scrollPercent * docHeight);
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            document.body.style.userSelect = '';
+        });
+        
         // Auto-scroll slider functionality
         const track = document.querySelector('.projects-track');
         const cards = document.querySelectorAll('.project-card');
@@ -537,6 +573,7 @@
         document.querySelectorAll('.section-reveal').forEach(section => {
             sectionObserver.observe(section);
         });
+        
 
         // Modal Functions
         function openModal() {
@@ -588,7 +625,10 @@
                 closeModal();
             }
         });
+
+        
     </script>
+    
 
 </body>
 </html>

@@ -2633,31 +2633,83 @@ html, body {
     }
 }
 
-/* Remove double scrollbar issue */
-html, body {
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+/* Hide browser scrollbar - use custom inline scrollbar */
+html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
 }
 
-/* Ensure only one scrollbar exists */
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Custom Scrollbar Container */
 body {
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    position: relative;
 }
 
-/* Remove any fixed height causing issues */
-.hero, .about-us, .our-services, .featured-projects, .get-in-touch {
-    min-height: auto;
-    height: auto;
-}
-
-/* Fix for modal causing body scroll issues */
-body.modal-open {
-    overflow: hidden !important;
+/* Custom Scrollbar Track */
+body::after {
+    content: '';
     position: fixed;
-    width: 100%;
+    right: 0;
+    top: 0;
+    width: 8px;
     height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 9998;
+    pointer-events: none;
+}
+
+/* Custom Scrollbar Thumb - This will be animated via JS */
+.custom-scrollbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 8px;
+    background: linear-gradient(180deg, #ff5252, #1976d2);
+    border-radius: 4px;
+    z-index: 9999;
+    transition: opacity 0.3s;
+    opacity: 0.8;
+}
+
+.custom-scrollbar:hover {
+    opacity: 1;
+    width: 10px;
+}
+
+/* NUCLEAR FIX - Remove all scrollbars except body */
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    overflow: visible !important;
+}
+
+/* Target every possible element */
+div, section, article, aside, nav, main, header, footer {
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+}
+
+/* But hide any scrollbar visually */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* Show only main scrollbar */
+html::-webkit-scrollbar {
+    width: 8px;
+    background: #0a0e27;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #ff5252;
+    border-radius: 4px;
 }
