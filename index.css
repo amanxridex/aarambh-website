@@ -2433,3 +2433,202 @@ html, body {
         text-decoration: none;
     }
 }
+
+/* Modal Styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 450px;
+    width: 100%;
+    position: relative;
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1) translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.modal-close:hover {
+    color: #ff5252;
+    background: rgba(255,82,82,0.1);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: contain;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.modal-header h3 {
+    color: #0a0e27;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.modal-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+.modal-form .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-form input,
+.modal-form select {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #e8e8e8;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s;
+    background: #fafafa;
+}
+
+.modal-form input:focus,
+.modal-form select:focus {
+    outline: none;
+    border-color: #ff5252;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(255,82,82,0.1);
+}
+
+.modal-form select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 45px;
+}
+
+.modal-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #ff5252, #d32f2f);
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(255,82,82,0.3);
+    margin-top: 10px;
+}
+
+.modal-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255,82,82,0.4);
+}
+
+/* Success Message */
+.success-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 10001;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    animation: popIn 0.5s ease;
+}
+
+.success-message.active {
+    display: block;
+}
+
+.success-message i {
+    font-size: 60px;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+.success-message h4 {
+    color: #0a0e27;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.success-message p {
+    color: #666;
+    font-size: 14px;
+}
+
+@keyframes popIn {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Mobile Responsive for Modal */
+@media (max-width: 480px) {
+    .modal-container {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    .modal-header h3 {
+        font-size: 20px;
+    }
+    
+    .modal-logo {
+        width: 60px;
+        height: 60px;
+    }
+}

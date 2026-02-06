@@ -25,7 +25,7 @@
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
-                <a href="#" class="enquire-btn">Enquire Now</a>
+                <a href="#" class="enquire-btn" onclick="openModal(); return false;">Enquire Now</a>
             </div>
         </div>
     </div>
@@ -95,7 +95,7 @@
             <p class="about-text scroll-hidden delay-3">
                 Aarambh Realtors is a premier real estate consultancy firm dedicated to helping you find your perfect property. With years of experience and a client-centric approach, we specialize in residential, commercial, and investment properties.
             </p>
-            <a href="#" class="learn-more-btn scroll-hidden delay-4">Learn More About Us</a>
+            <a href="#" class="learn-more-btn scroll-hidden delay-4" onclick="openModal(); return false;">Learn More About Us</a>
         </div>
     </section>
 
@@ -273,7 +273,7 @@
                 <span class="dot"></span>
             </div>
 
-            <a href="#" class="view-all-btn scroll-hidden delay-5">View All Projects</a>
+            <a href="#" class="view-all-btn scroll-hidden delay-5" onclick="openModal(); return false;">View All Projects</a>
         </div>
     </section>
 
@@ -285,11 +285,11 @@
             <p class="section-desc scroll-hidden delay-2">Have a question? Interested in a property? Send us a message.</p>
             
             <div class="contact-form-container scroll-hidden delay-3">
-                <form class="contact-form">
-                    <input type="text" placeholder="Name" required>
-                    <input type="tel" placeholder="Phone" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Query / Message" rows="4" required></textarea>
+                <form class="contact-form" onsubmit="submitEnquiry(event)">
+                    <input type="text" id="contactName" placeholder="Name" required>
+                    <input type="tel" id="contactPhone" placeholder="Phone" pattern="[0-9]{10}" maxlength="10" required>
+                    <input type="email" id="contactEmail" placeholder="Email" required>
+                    <textarea id="contactMessage" placeholder="Query / Message" rows="4" required></textarea>
                     <button type="submit" class="submit-btn">Submit Enquiry</button>
                 </form>
             </div>
@@ -348,12 +348,53 @@
         </div>
     </footer>
 
+    <!-- Enquiry Modal -->
+    <div class="modal-overlay" id="enquiryModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="modal-logo">
+                <h3>Enquire Now</h3>
+                <p>Fill in your details and we'll get back to you shortly</p>
+            </div>
+            <form class="modal-form" onsubmit="submitEnquiry(event)">
+                <div class="form-group">
+                    <input type="text" id="enquiryName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="enquiryPhone" placeholder="Mobile Number" pattern="[0-9]{10}" maxlength="10" required>
+                </div>
+                <div class="form-group">
+                    <select id="enquiryProject">
+                        <option value="">Select Project (Optional)</option>
+                        <option value="Harit Vatika">Harit Vatika</option>
+                        <option value="The House of Abhinandan Lodha">The House of Abhinandan Lodha</option>
+                        <option value="Ramayana Enclave">Ramayana Enclave</option>
+                        <option value="Novel Organic Farms">Novel Organic Farms</option>
+                        <option value="Godrej Properties">Godrej Properties</option>
+                        <option value="Gulf of Goa">Gulf of Goa</option>
+                        <option value="Shri Tulsi Vatika">Shri Tulsi Vatika</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="modal-submit">Submit Enquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <h4>Thank You!</h4>
+        <p>We have received your enquiry. Our team will contact you soon.</p>
+    </div>
+
     <!-- Floating Action Buttons (Fixed on scroll) -->
     <div class="floating-buttons">
-        <a href="#" class="float-btn chat-btn">
+        <a href="#" class="float-btn chat-btn" onclick="openModal(); return false;">
             <i class="fas fa-comment-dots"></i>
         </a>
-        <a href="#" class="float-btn whatsapp-btn">
+        <a href="https://api.whatsapp.com/send/?phone=919810319001&text=Hi%20Aarambh%20Realtors,%20I%20am%20interested%20in%20your%20projects&type=phone_number&app_absent=0" class="float-btn whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -495,6 +536,57 @@
 
         document.querySelectorAll('.section-reveal').forEach(section => {
             sectionObserver.observe(section);
+        });
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('enquiryModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('enquiryModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function submitEnquiry(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('enquiryName').value;
+            const phone = document.getElementById('enquiryPhone').value;
+            const project = document.getElementById('enquiryProject').value;
+            
+            // Here you can add AJAX call to send data to your server
+            console.log('Enquiry:', { name, phone, project });
+            
+            // Close modal and show success
+            closeModal();
+            
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('active');
+            
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                successMsg.classList.remove('active');
+            }, 3000);
+            
+            // Reset form
+            e.target.reset();
+        }
+
+        // Close modal on outside click
+        document.getElementById('enquiryModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
         });
     </script>
 
