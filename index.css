@@ -2359,3 +2359,77 @@ html, body {
         padding-top: max(15px, env(safe-area-inset-top));
     }
 }
+
+/* ================= STRONG MOBILE FIX FOR TOP BAR ================= */
+
+/* Hide long address on mobile completely */
+@media screen and (max-width: 768px) {
+    .top-bar-left span {
+        display: none !important;
+    }
+    
+    .top-bar-left::after {
+        content: '📍 Noida, India';
+        color: white;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+    
+    .top-bar-left i {
+        display: none !important;
+    }
+}
+
+/* Alternative: Hide entire top bar on mobile and show a cleaner version */
+@media screen and (max-width: 768px) {
+    .top-bar {
+        background: linear-gradient(90deg, #1e88e5 0%, #0d47a1 100%);
+        padding: 8px 0;
+    }
+    
+    .top-bar .container {
+        display: flex;
+        flex-direction: row !important;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    /* Hide left side completely */
+    .top-bar-left {
+        display: none !important;
+    }
+    
+    /* Show only phone and button on right */
+    .top-bar-right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .top-bar-right a[href^="tel"] {
+        display: flex !important;
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .top-bar-right a[href^="mailto"] {
+        display: none !important;
+    }
+    
+    .social-icons {
+        display: none !important;
+    }
+    
+    .enquire-btn {
+        padding: 6px 14px;
+        font-size: 12px;
+        background: #ff5252;
+        border-radius: 4px;
+        color: white;
+        text-decoration: none;
+    }
+}
