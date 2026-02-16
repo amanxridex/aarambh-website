@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - Aarambh Realtors</title>
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo-ar.png" alt="Aarambh Realtors">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="projects-hero">
+        <div class="hero-bg">
+            <div class="bg-slide active" style="background-image: url('assets/harit_vatika.jpg')"></div>
+            <div class="bg-slide" style="background-image: url('assets/godrej.jpg')"></div>
+            <div class="bg-slide" style="background-image: url('assets/gulf_of_goa.png')"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Projects</span>
+            </div>
+            <h1 class="glitch-text" data-text="OUR PROJECTS">OUR PROJECTS</h1>
+            <p class="hero-subtitle">Discover Premium Properties</p>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <p>Scroll to Explore</p>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-wrapper">
+                <div class="filter-header">
+                    <h2>Find Your Perfect Property</h2>
+                    <button class="filter-toggle">
+                        <i class="fas fa-filter"></i>
+                        <span>Filters</span>
+                    </button>
+                </div>
+
+                <div class="filters">
+                    <!-- Property Type -->
+                    <div class="filter-group">
+                        <label>Property Type</label>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-filter="all" data-group="type">
+                                <i class="fas fa-th-large"></i>
+                                <span>All</span>
+                            </button>
+                            <button class="filter-btn" data-filter="residential" data-group="type">
+                                <i class="fas fa-home"></i>
+                                <span>Residential</span>
+                            </button>
+                            <button class="filter-btn" data-filter="commercial" data-group="type">
+                                <i class="fas fa-building"></i>
+                                <span>Commercial</span>
+                            </button>
+                            <button class="filter-btn" data-filter="farmhouse" data-group="type">
+                                <i class="fas fa-tree"></i>
+                                <span>Farmhouse</span>
+                            </button>
+                            <button class="filter-btn" data-filter="plots" data-group="type">
+                                <i class="fas fa-map"></i>
+                                <span>Plots</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="filter-group">
+                        <label>Status</label>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-filter="all" data-group="status">
+                                <span>All Status</span>
+                            </button>
+                            <button class="filter-btn" data-filter="ongoing" data-group="status">
+                                <span class="status-dot ongoing"></span>
+                                <span>Ongoing</span>
+                            </button>
+                            <button class="filter-btn" data-filter="upcoming" data-group="status">
+                                <span class="status-dot upcoming"></span>
+                                <span>Upcoming</span>
+                            </button>
+                            <button class="filter-btn" data-filter="ready" data-group="status">
+                                <span class="status-dot ready"></span>
+                                <span>Ready to Move</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Budget Range -->
+                    <div class="filter-group">
+                        <label>Budget Range</label>
+                        <div class="budget-slider">
+                            <div class="range-track">
+                                <div class="range-fill"></div>
+                            </div>
+                            <div class="range-inputs">
+                                <input type="range" min="0" max="500" value="0" class="range-min">
+                                <input type="range" min="0" max="500" value="500" class="range-max">
+                            </div>
+                            <div class="range-values">
+                                <span class="min-value">₹0 Lakh</span>
+                                <span class="max-value">₹50+ Crore</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sort -->
+                    <div class="filter-group sort-group">
+                        <label>Sort By</label>
+                        <select class="sort-select">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="active-filters">
+                    <span class="results-count">Showing <strong>7</strong> properties</span>
+                    <div class="filter-tags"></div>
+                    <button class="clear-filters">Clear All</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-grid-section">
+        <div class="container">
+            <div class="projects-masonry">
+                <!-- Project Card 1 -->
+                <article class="project-card" data-type="plots" data-status="ongoing" data-price="35">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="project-image">
+                                <img src="assets/harit_vatika.jpg" alt="Harit Vatika">
+                                <div class="image-overlay"></div>
+                                <div class="project-badges">
+                                    <span class="badge status ongoing">Ongoing</span>
+                                    <span class="badge type">Plots</span>
+                                </div>
+                                <button class="wishlist-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="project-info">
+                                <h3>Harit Vatika</h3>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Yamuna Expressway</p>
+                                <div class="project-meta">
+                                    <span class="price">₹35 Lakh</span>
+                                    <span class="area">100-500 Sq.Yd</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <h4>Harit Vatika</h4>
+                                <p class="description">Eco-friendly residential plots offering a calm and pollution-free environment near Jewar International Airport.</p>
+                                <ul class="features">
+                                    <li><i class="fas fa-check"></i> Gated Community</li>
+                                    <li><i class="fas fa-check"></i> 24/7 Security</li>
+                                    <li><i class="fas fa-check"></i> Water & Electricity</li>
+                                    <li><i class="fas fa-check"></i> Near Airport</li>
+                                </ul>
+                                <div class="back-actions">
+                                    <button class="btn-primary" onclick="openModal('Harit Vatika')">Enquire Now</button>
+                                    <a href="#" class="btn-secondary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 2 -->
+                <article class="project-card featured" data-type="residential" data-status="ongoing" data-price="250">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="project-image">
+                                <img src="assets/hoabl.jpg" alt="The House of Abhinandan Lodha">
+                                <div class="image-overlay"></div>
+                                <div class="project-badges">
+                                    <span class="badge featured-badge">Featured</span>
+                                    <span class="badge status ongoing">Ongoing</span>
+                                    <span class="badge type">Residential</span>
+                                </div>
+                                <button class="wishlist-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="project-info">
+                                <h3>The House of Abhinandan Lodha</h3>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Ayodhya / Goa</p>
+                                <div class="project-meta">
+                                    <span class="price">₹2.5 Crore</span>
+                                    <span class="area">2000+ Sq.Ft</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <h4>The House of Abhinandan Lodha</h4>
+                                <p class="description">Premium land with world-class amenities and luxurious living spaces.</p>
+                                <ul class="features">
+                                    <li><i class="fas fa-check"></i> Luxury Amenities</li>
+                                    <li><i class="fas fa-check"></i> Club House</li>
+                                    <li><i class="fas fa-check"></i> Swimming Pool</li>
+                                    <li><i class="fas fa-check"></i> Smart Home</li>
+                                </ul>
+                                <div class="back-actions">
+                                    <button class="btn-primary" onclick="openModal('The House of Abhinandan Lodha')">Enquire Now</button>
+                                    <a href="#" class="btn-secondary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 3 -->
+                <article class="project-card" data-type="residential" data-status="ready" data-price="45">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="project-image">
+                                <img src="assets/ramayana_enclave.png" alt="Ramayana Enclave">
+                                <div class="image-overlay"></div>
+                                <div class="project-badges">
+                                    <span class="badge status ready">Ready to Move</span>
+                                    <span class="badge type">Residential</span>
+                                </div>
+                                <button class="wishlist-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="project-info">
+                                <h3>Ramayana Enclave</h3>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Laksar, Uttarakhand</p>
+                                <div class="project-meta">
+                                    <span class="price">₹45 Lakh</span>
+                                    <span class="area">1500 Sq.Ft</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <h4>Ramayana Enclave</h4>
+                                <p class="description">A residential gated society offering plots that are zoned for residential use.</p>
+                                <ul class="features">
+                                    <li><i class="fas fa-check"></i> Ready Possession</li>
+                                    <li><i class="fas fa-check"></i> Park Facing</li>
+                                    <li><i class="fas fa-check"></i> Corner Plots</li>
+                                    <li><i class="fas fa-check"></i> Immediate Registry</li>
+                                </ul>
+                                <div class="back-actions">
+                                    <button class="btn-primary" onclick="openModal('Ramayana Enclave')">Enquire Now</button>
+                                    <a href="#" class="btn-secondary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 4 -->
+                <article class="project-card" data-type="farmhouse" data-status="ready" data-price="85">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="project-image">
+                                <img src="assets/novel_farms.jpg" alt="Novel Organic Farms">
+                                <div class="image-overlay"></div>
+                                <div class="project-badges">
+                                    <span class="badge status ready">Available</span>
+                                    <span class="badge type">Farmhouse</span>
+                                </div>
+                                <button class="wishlist-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="project-info">
+                                <h3>Novel Organic Farms</h3>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Noida Sector 151</p>
+                                <div class="project-meta">
+                                    <span class="price">₹85 Lakh</span>
+                                    <span class="area">1-5 Acre</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <h4>Novel Organic Farms</h4>
+                                <p class="description">Exclusive farmhouse lands for weekend getaways and peaceful living.</p>
+                                <ul class="features">
+                                    <li><i class="fas fa-check"></i> Organic Farming</li>
+                                    <li><i class="fas fa-check"></i> Private Pool</li>
+                                    <li><i class="fas fa-check"></i> Party Lawn</li>
+                                    <li><i class="fas fa-check"></i> Weekend Home</li>
+                                </ul>
+                                <div class="back-actions">
+                                    <button class="btn-primary" onclick="openModal('Novel Organic Farms')">Enquire Now</button>
+                                    <a href="#" class="btn-secondary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 5 -->
+                <article class="project-card" data-type="commercial" data-status="upcoming" data-price="150">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="project-image">
+                                <img src="assets/godrej.jpg" alt="Godrej Properties">
+                                <div class="image-overlay"></div>
+                                <div class="project-badges">
+                                    <span class="badge status upcoming">Coming Soon</span>
+                                    <span class="badge type">Commercial</span>
+                                </div>
+                                <button class="wishlist-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="project-info">
+                                <h3>Godrej Properties</h3>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Noida Sector 146</p>
+                                <div class="project-meta">
+                                    <span class="price">₹1.5 Crore</span>
+                                    <span class="area">500-2000 Sq.Ft</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <h4>Godrej Properties</h4>
+                                <p class="description">Luxury apartments with state-of-the-art facilities and modern amenities.</p>
+                                <ul class="features">
+                                    <li><i class="fas fa-check"></i> Brand Value</li>
+                                    <li><i class="fas fa-check"></i> Modern Design</li>
+                                    <li><i class="fas fa-check"></i> High ROI</li>
+                                    <li><i class="fas fa-check"></i> Prime Location</li>
+                                </ul>
+                                <div class="back-actions">
+                                    <button class="btn-primary" onclick="openModal('Godrej Properties')">Enquire Now</button>
+                                    <a href="#" class="btn-secondary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 6 -->
+                <article class="project-card new" data-type="residential" data-status="upcoming" data-price="500">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="project-image">
+                                <img src="assets/gulf_of_goa.png" alt="Gulf of Goa">
+                                <div class="image-overlay"></div>
+                                <div class="project-badges">
+                                    <span class="badge new-badge">New Launch</span>
+                                    <span class="badge status upcoming">Upcoming</span>
+                                    <span class="badge type">Residential</span>
+                                </div>
+                                <button class="wishlist-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="project-info">
+                                <h3>Gulf of Goa</h3>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Goa</p>
+                                <div class="project-meta">
+                                    <span class="price">₹5 Crore+</span>
+                                    <span class="area">3000+ Sq.Ft</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <h4>Gulf of Goa</h4>
+                                <p class="description">Beachside villas and apartments for a perfect vacation home.</p>
+                                <ul class="features">
+                                    <li><i class="fas fa-check"></i> Sea View</li>
+                                    <li><i class="fas fa-check"></i> Beach Access</li>
+                                    <li><i class="fas fa-check"></i> Resort Style</li>
+                                    <li><i class="fas fa-check"></i> Premium Living</li>
+                                </ul>
+                                <div class="back-actions">
+                                    <button class="btn-primary" onclick="openModal('Gulf of Goa')">Enquire Now</button>
+                                    <a href="#" class="btn-secondary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 7 -->
+                <article class="project-card" data-type="plots" data-status="upcoming" data-price="25">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="project-image">
+                                <img src="assets/shri_tulsi_vatika.jpeg" alt="Shri Tulsi Vatika">
+                                <div class="image-overlay"></div>
+                                <div class="project-badges">
+                                    <span class="badge status upcoming">Coming Soon</span>
+                                    <span class="badge type">Plots</span>
+                                </div>
+                                <button class="wishlist-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="project-info">
+                                <h3>Shri Tulsi Vatika</h3>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Yamuna Expressway</p>
+                                <div class="project-meta">
+                                    <span class="price">₹25 Lakh</span>
+                                    <span class="area">100-300 Sq.Yd</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <h4>Shri Tulsi Vatika</h4>
+                                <p class="description">Residential plots offering a pollution-free environment near Jewar International Airport.</p>
+                                <ul class="features">
+                                    <li><i class="fas fa-check"></i> Affordable</li>
+                                    <li><i class="fas fa-check"></i> Green Zone</li>
+                                    <li><i class="fas fa-check"></i> Easy Payment</li>
+                                    <li><i class="fas fa-check"></i> Future Ready</li>
+                                </ul>
+                                <div class="back-actions">
+                                    <button class="btn-primary" onclick="openModal('Shri Tulsi Vatika')">Enquire Now</button>
+                                    <a href="#" class="btn-secondary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more-wrapper">
+                <button class="load-more-btn">
+                    <span>Load More Projects</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Bar -->
+    <div class="comparison-bar" id="comparisonBar">
+        <div class="container">
+            <div class="compare-info">
+                <span class="compare-count">0</span>
+                <span>projects selected</span>
+            </div>
+            <div class="compare-actions">
+                <button class="btn-compare" onclick="showComparison()">Compare Now</button>
+                <button class="btn-clear" onclick="clearComparison()">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="footer-logo">
+                    <p>Building trust, delivering dreams. Your trusted real estate partner.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> 9810319001</p>
+                    <p><i class="fas fa-envelope"></i> info.aarambhrealtors@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Aarambh Realtors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enquiry Modal -->
+    <div class="modal-overlay" id="enquiryModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="modal-logo">
+                <h3 id="modalProjectName">Enquire Now</h3>
+                <p>Fill in your details and we'll get back to you</p>
+            </div>
+            <form class="modal-form" onsubmit="submitEnquiry(event)">
+                <div class="form-group">
+                    <input type="text" id="enquiryName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="enquiryPhone" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="enquiryEmail" placeholder="Email Address" required>
+                </div>
+                <button type="submit" class="modal-submit">Submit Enquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div class="modal-overlay" id="comparisonModal">
+        <div class="modal-container comparison-container">
+            <button class="modal-close" onclick="closeComparison()">&times;</button>
+            <h3>Compare Projects</h3>
+            <div class="comparison-table" id="comparisonTable"></div>
+        </div>
+    </div>
+
+    <script src="projects.js"></script>
+</body>
+</html>
