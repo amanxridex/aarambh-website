@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About Us - Aarambh Realtors</title>
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,9 +20,8 @@
         </div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
-    <div class="cursor-dot"></div>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -30,18 +29,44 @@
             <a href="index.html" class="logo">
                 <img src="assets/logo-ar.png" alt="Aarambh Realtors">
             </a>
-            <ul class="nav-links">
+            
+            <!-- Desktop Navigation -->
+            <ul class="nav-links desktop-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About Us</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="index.html#services">Services</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
-            <button class="menu-toggle">
+
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="mobile-logo">
+                <button class="mobile-close" id="mobileClose" aria-label="Close Menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="projects.html"><i class="fas fa-building"></i> Projects</a></li>
+                <li><a href="index.html#services"><i class="fas fa-cogs"></i> Services</a></li>
+                <li><a href="index.html#contact"><i class="fas fa-phone"></i> Contact</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <a href="tel:9810319001" class="mobile-call-btn">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -64,7 +89,7 @@
                 <span class="line highlight">Dreams</span>
             </h1>
             
-            <p class="hero-subtitle">Your Premier Real Estate Partner Since 2015</p>
+            <p class="hero-subtitle">Your Premier Real Estate Partner Since 2023</p>
             
             <div class="scroll-indicator">
                 <div class="mouse">
@@ -75,15 +100,15 @@
 
         <!-- Floating Stats -->
         <div class="floating-stats">
-            <div class="stat-card" data-parallax="0.5">
+            <div class="stat-card">
                 <span class="stat-number" data-target="500">0</span>
                 <span class="stat-label">Happy Clients</span>
             </div>
-            <div class="stat-card" data-parallax="0.3">
+            <div class="stat-card">
                 <span class="stat-number" data-target="150">0</span>
                 <span class="stat-label">Projects Done</span>
             </div>
-            <div class="stat-card" data-parallax="0.7">
+            <div class="stat-card">
                 <span class="stat-number" data-target="10">0</span>
                 <span class="stat-label">Years Experience</span>
             </div>
@@ -100,29 +125,29 @@
             
             <div class="story-content">
                 <div class="story-text">
-                    <div class="text-block" data-reveal="left">
+                    <div class="text-block" data-reveal="up">
                         <h3>The Beginning</h3>
-                        <p>Founded in 2015, Aarambh Realtors started with a simple mission - to transform the real estate experience in India. What began as a small team of passionate professionals has grown into one of the most trusted names in the industry.</p>
+                        <p>Founded in 2023, Aarambh Realtors started with a simple mission - to transform the real estate experience in India. What began as a small team of passionate professionals has grown into one of the most trusted names in the industry.</p>
                     </div>
                     
-                    <div class="text-block" data-reveal="left" data-delay="0.2">
+                    <div class="text-block" data-reveal="up" data-delay="0.1">
                         <h3>Our Philosophy</h3>
                         <p>We believe that every property transaction is more than just business - it's about helping families find their perfect home, assisting investors in making smart decisions, and contributing to the growth of communities.</p>
                     </div>
                     
-                    <div class="text-block" data-reveal="left" data-delay="0.4">
+                    <div class="text-block" data-reveal="up" data-delay="0.2">
                         <h3>Today & Beyond</h3>
                         <p>With over 500 satisfied clients and 150+ successful projects, we continue to push boundaries. Our commitment to transparency, innovation, and customer satisfaction remains stronger than ever.</p>
                     </div>
                 </div>
                 
-                <div class="story-visual" data-reveal="right">
+                <div class="story-visual" data-reveal="up" data-delay="0.3">
                     <div class="visual-container">
                         <div class="rotating-ring ring-1"></div>
                         <div class="rotating-ring ring-2"></div>
                         <div class="center-content">
                             <i class="fas fa-building"></i>
-                            <span>Est. 2015</span>
+                            <span>Est. 2023</span>
                         </div>
                     </div>
                 </div>
@@ -170,10 +195,10 @@
                         </div>
                     </div>
                     
-                    <button class="gallery-nav prev" onclick="changeImage(-1)">
+                    <button class="gallery-nav prev" onclick="changeImage(-1)" aria-label="Previous Image">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    <button class="gallery-nav next" onclick="changeImage(1)">
+                    <button class="gallery-nav next" onclick="changeImage(1)" aria-label="Next Image">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                     
@@ -225,7 +250,7 @@
                         <i class="fas fa-lightbulb"></i>
                     </div>
                     <h3>Innovation</h3>
-                    <p>We constantly evolve our methods and embrace technology to deliver better results for our clients.</p>
+                    <p>We constantly evolve our methods and embrace technology to deliver better results.</p>
                     <div class="value-number">02</div>
                 </div>
                 
@@ -251,7 +276,6 @@
             </div>
         </div>
         
-        <!-- Background Elements -->
         <div class="values-bg">
             <div class="bg-circle circle-1"></div>
             <div class="bg-circle circle-2"></div>
@@ -274,12 +298,12 @@
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                     <div class="card-info">
-                        <h4>Rajesh Sharma</h4>
+                        <h4>Karan Sharma</h4>
                         <span class="role">Founder & CEO</span>
                         <p>20+ years in real estate development</p>
                     </div>
@@ -291,12 +315,12 @@
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                     <div class="card-info">
-                        <h4>Priya Gupta</h4>
+                        <h4>Neeru Garg</h4>
                         <span class="role">Managing Director</span>
                         <p>Expert in residential projects</p>
                     </div>
@@ -308,12 +332,12 @@
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                     <div class="card-info">
-                        <h4>Amit Verma</h4>
+                        <h4>Mukesh Sharma</h4>
                         <span class="role">Head of Sales</span>
                         <p>Specialist in commercial properties</p>
                     </div>
@@ -325,12 +349,12 @@
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                     <div class="card-info">
-                        <h4>Neha Patel</h4>
+                        <h4>Swati Sharma</h4>
                         <span class="role">Marketing Head</span>
                         <p>Brand strategist and digital expert</p>
                     </div>
@@ -350,16 +374,16 @@
             <div class="timeline">
                 <div class="timeline-line"></div>
                 
-                <div class="timeline-item" data-reveal="left">
+                <div class="timeline-item" data-reveal="up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="year">2015</span>
+                        <span class="year">2023</span>
                         <h4>The Beginning</h4>
                         <p>Aarambh Realtors founded with a team of 5 passionate individuals</p>
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-reveal="right">
+                <div class="timeline-item" data-reveal="up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="year">2017</span>
@@ -368,7 +392,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-reveal="left">
+                <div class="timeline-item" data-reveal="up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="year">2019</span>
@@ -377,7 +401,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-reveal="right">
+                <div class="timeline-item" data-reveal="up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="year">2021</span>
@@ -386,7 +410,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-reveal="left">
+                <div class="timeline-item" data-reveal="up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="year">2023</span>
@@ -395,7 +419,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-reveal="right">
+                <div class="timeline-item" data-reveal="up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="year">2025</span>
@@ -420,7 +444,6 @@
             </div>
         </div>
         
-        <!-- Animated Background -->
         <div class="cta-bg">
             <div class="gradient-orb orb-1"></div>
             <div class="gradient-orb orb-2"></div>
@@ -433,7 +456,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="footer-logo">
-                    <p>Building trust, delivering dreams. Your trusted real estate partner since 2015.</p>
+                    <p>Building trust, delivering dreams. Your trusted real estate partner since 2023.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
