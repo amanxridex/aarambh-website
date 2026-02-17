@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Aarambh Realtors</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-heart">
+            <i class="fas fa-heart"></i>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo-ar.png" alt="Aarambh Realtors">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div class="mobile-nav" id="mobileNav">
+            <button class="mobile-close" id="mobileClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="floating-hearts">
+            <div class="heart heart-1">💝</div>
+            <div class="heart heart-2">🏠</div>
+            <div class="heart heart-3">🔑</div>
+            <div class="heart heart-4">💫</div>
+        </div>
+
+        <div class="hero-content">
+            <span class="tag">Get In Touch</span>
+            <h1>Let's Start Your<br><span class="highlight">Journey</span> Together</h1>
+            <p>We're here to help you find your perfect home</p>
+        </div>
+
+        <div class="scroll-bounce">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Contact Cards -->
+    <section class="contact-cards">
+        <div class="container">
+            <div class="cards-wrapper">
+                <div class="contact-card" data-delay="0">
+                    <div class="card-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Mon-Sat, 9am to 7pm</p>
+                    <a href="tel:9810319001" class="card-link">98103 19001</a>
+                </div>
+
+                <div class="contact-card featured" data-delay="0.1">
+                    <div class="card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Us</h3>
+                    <p>Come say hello!</p>
+                    <span class="address">172/B, Tower A, The Corenthum<br>Sector 62, Noida</span>
+                </div>
+
+                <div class="contact-card" data-delay="0.2">
+                    <div class="card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>We reply within 24hrs</p>
+                    <a href="mailto:info.aarambhrealtors@gmail.com" class="card-link">Send Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Form Side -->
+                <div class="form-side">
+                    <div class="form-header">
+                        <h2>Send us a Message</h2>
+                        <p>Fill in the form and we'll get back to you within 24 hours</p>
+                    </div>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="name" required placeholder=" ">
+                                <label for="name">Your Name</label>
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" required placeholder=" ">
+                                <label for="phone">Phone Number</label>
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">Email Address</label>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+
+                        <div class="form-group">
+                            <select id="interest" required>
+                                <option value="" disabled selected>Select Interest</option>
+                                <option value="residential">Residential Property</option>
+                                <option value="commercial">Commercial Property</option>
+                                <option value="plots">Plots & Land</option>
+                                <option value="farmhouse">Farmhouse</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <i class="fas fa-home"></i>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="message" rows="4" required placeholder=" "></textarea>
+                            <label for="message">Your Message</label>
+                            <i class="fas fa-comment"></i>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Side -->
+                <div class="info-side">
+                    <div class="info-card">
+                        <h3>Quick Connect</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-btn whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                            <a href="#" class="social-btn instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info-card working-hours">
+                        <h3><i class="fas fa-clock"></i> Working Hours</h3>
+                        <ul>
+                            <li>
+                                <span>Monday - Saturday</span>
+                                <span>9:00 AM - 7:00 PM</span>
+                            </li>
+                            <li>
+                                <span>Sunday</span>
+                                <span>Closed</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card promise">
+                        <div class="promise-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Our Promise</h4>
+                        <p>Your information is safe with us. We never share your details with third parties.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5484403!2d77.3712129!3d28.6270569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5bb1ced8969%3A0xf65a390267e58b8f!2sAarambh%20Realtors!5e0!3m2!1sen!2sin!4v1707123456789!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+            <div class="map-overlay">
+                <div class="location-pin">
+                    <i class="fas fa-map-pin"></i>
+                    <span>We are here!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo-ar.png" alt="Aarambh Realtors">
+                    <p>Building trust, delivering dreams since 2015</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made with <i class="fas fa-heart"></i> by Aarambh Realtors</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. We'll get back to you soon.</p>
+            <button onclick="closeModal()">Awesome!</button>
+        </div>
+    </div>
+
+    <script src="contact.js"></script>
+</body>
+</html>
