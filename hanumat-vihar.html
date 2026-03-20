@@ -3,690 +3,582 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Hanumat Vihar - Vrindavan | Aarambh Realtors</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Hanumat Vihar Awasiya Yojna – Vrindavan | Aarambh Realtors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== HANUMAT VIHAR PAGE STYLES ===== */
-
-        /* Page Hero */
-        .project-hero {
-            position: relative;
-            height: 520px;
-            background: url('assets/hanumat_vihar.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: flex-end;
-            overflow: hidden;
+        :root {
+            --saffron: #E8821A;
+            --gold: #C9A84C;
+            --gold-light: #F0D080;
+            --dark: #0C0A08;
+            --dark-2: #141210;
+            --dark-3: #1E1A14;
+            --dark-4: #2A2318;
+            --dark-5: #352C1E;
+            --cream: #F5EDD8;
+            --cream-dim: #C8B99A;
+            --text-muted: #8A7A62;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--saffron) var(--dark-2); }
+        html::-webkit-scrollbar { width: 6px; }
+        html::-webkit-scrollbar-track { background: var(--dark-2); }
+        html::-webkit-scrollbar-thumb { background: var(--saffron); border-radius: 3px; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--cream); overflow-x: hidden; }
 
-        .project-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to bottom,
-                rgba(10,14,39,0.3) 0%,
-                rgba(10,14,39,0.85) 100%
-            );
+        .scroll-prog { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--saffron), var(--gold)); z-index: 10000; width: 0%; transition: width 0.1s linear; }
+
+        /* TOP BAR */
+        .topbar { background: var(--dark-2); border-bottom: 1px solid rgba(200,160,80,0.15); padding: 9px 0; font-size: 12.5px; position: relative; z-index: 900; transition: transform 0.4s ease; }
+        .topbar.hidden { transform: translateY(-100%); }
+        .topbar .wrap { max-width: 1280px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
+        .topbar-left { display: flex; align-items: center; gap: 7px; color: var(--cream-dim); }
+        .topbar-left i { color: var(--saffron); font-size: 11px; }
+        .topbar-right { display: flex; align-items: center; gap: 22px; }
+        .topbar-right a { color: var(--cream-dim); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.3s; }
+        .topbar-right a:hover { color: var(--gold-light); }
+        .topbar-right .enquire-pill { background: linear-gradient(135deg, var(--saffron), #C06A10); color: white; padding: 5px 14px; border-radius: 20px; font-weight: 600; font-size: 11px; letter-spacing: 0.5px; }
+        .topbar-right .social { display: flex; gap: 10px; }
+        .topbar-right .social a { width: 24px; height: 24px; background: rgba(200,160,80,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+
+        /* NAVBAR */
+        .navbar { position: sticky; top: 0; z-index: 800; background: rgba(12,10,8,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(200,160,80,0.12); padding: 14px 0; transition: all 0.4s; }
+        .navbar.scrolled { padding: 10px 0; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+        .navbar .wrap { max-width: 1280px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo img { height: 44px; width: 44px; border-radius: 50%; background: white; padding: 4px; object-fit: contain; }
+        .nav-links { display: flex; list-style: none; gap: 36px; }
+        .nav-links a { color: var(--cream-dim); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px; background: var(--saffron); transition: width 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+        /* VIDEO HERO */
+        .hero { position: relative; height: 100vh; min-height: 620px; display: flex; align-items: center; overflow: hidden; }
+        .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+        .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, rgba(12,10,8,0.88) 45%, rgba(12,10,8,0.15) 100%), linear-gradient(to top, rgba(12,10,8,0.9) 0%, transparent 55%); }
+        .hero-accent { position: absolute; top: 0; right: 26%; width: 1px; height: 100%; background: linear-gradient(to bottom, transparent 0%, rgba(200,160,80,0.25) 40%, transparent 100%); z-index: 2; }
+        .hero-content { position: relative; z-index: 3; max-width: 1280px; margin: 0 auto; padding: 0 30px; width: 100%; }
+
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(200,185,154,0.45); margin-bottom: 28px; animation: fadeUp 0.7s ease 0.1s both; }
+        .breadcrumb a { color: rgba(200,185,154,0.45); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: var(--gold-light); }
+        .breadcrumb i { font-size: 9px; }
+        .breadcrumb span { color: var(--cream-dim); }
+
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, rgba(232,130,26,0.18), rgba(201,168,76,0.12)); border: 1px solid rgba(232,130,26,0.4); color: var(--gold-light); padding: 7px 18px; border-radius: 30px; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 22px; animation: fadeUp 0.7s ease 0.2s both; }
+        .hero-badge i { color: var(--saffron); font-size: 10px; }
+
+        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 6vw, 78px); font-weight: 700; line-height: 1.05; color: var(--cream); margin-bottom: 6px; animation: fadeUp 0.8s ease 0.3s both; }
+        .hero h1 em { font-style: italic; color: var(--gold-light); display: block; }
+        .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: var(--text-muted); margin-bottom: 22px; animation: fadeUp 0.8s ease 0.4s both; }
+        .hero-location { display: inline-flex; align-items: center; gap: 8px; color: var(--saffron); font-size: 15px; font-weight: 500; margin-bottom: 38px; animation: fadeUp 0.8s ease 0.5s both; }
+
+        .hero-pills { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; animation: fadeUp 0.8s ease 0.6s both; }
+        .hero-pill { background: rgba(200,160,80,0.1); border: 1px solid rgba(200,160,80,0.25); color: var(--cream-dim); padding: 8px 18px; border-radius: 30px; font-size: 13px; display: flex; align-items: center; gap: 7px; }
+        .hero-pill i { color: var(--gold); font-size: 11px; }
+
+        .hero-cta { display: flex; gap: 16px; align-items: center; animation: fadeUp 0.8s ease 0.7s both; }
+        .btn-primary { background: linear-gradient(135deg, var(--saffron) 0%, #C06A10 100%); color: white; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.5px; border: none; cursor: pointer; transition: all 0.35s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 8px 30px rgba(232,130,26,0.35); position: relative; overflow: hidden; }
+        .btn-primary::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transition: left 0.5s; }
+        .btn-primary:hover::before { left: 100%; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(232,130,26,0.45); }
+        .btn-ghost { background: transparent; border: 1px solid rgba(200,160,80,0.35); color: var(--cream-dim); padding: 16px 36px; border-radius: 4px; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.3s; cursor: pointer; }
+        .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(200,160,80,0.07); }
+
+        .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(200,185,154,0.35); font-size: 11px; letter-spacing: 2px; z-index: 3; animation: fadeUp 1s ease 1.2s both; }
+        .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+        @keyframes scrollPulse { 0%,100%{transform:scaleY(1);opacity:.35}50%{transform:scaleY(1.3);opacity:1} }
+
+        /* STATS BAR */
+        .stats-bar { background: var(--dark-3); border-top: 1px solid rgba(200,160,80,0.1); border-bottom: 1px solid rgba(200,160,80,0.1); }
+        .stats-bar .wrap { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(5,1fr); }
+        .stat-item { padding: 28px 24px; text-align: center; border-right: 1px solid rgba(200,160,80,0.08); transition: background 0.3s; }
+        .stat-item:last-child { border-right: none; }
+        .stat-item:hover { background: rgba(200,160,80,0.04); }
+        .stat-val { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: var(--gold-light); line-height: 1; margin-bottom: 4px; }
+        .stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* MAIN LAYOUT */
+        .page-main { max-width: 1280px; margin: 0 auto; padding: 80px 30px; display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: start; }
+
+        /* SECTION TITLES */
+        .sec-title { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: var(--cream); margin-bottom: 6px; position: relative; padding-bottom: 18px; }
+        .sec-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 36px; height: 2px; background: linear-gradient(90deg, var(--saffron), var(--gold)); }
+        .sec-intro { color: var(--text-muted); font-size: 14.5px; line-height: 1.75; margin-top: 16px; margin-bottom: 36px; }
+
+        /* ABOUT */
+        .about-block { margin-bottom: 64px; }
+        .about-block p { color: var(--cream-dim); font-size: 15px; line-height: 1.85; margin-top: 18px; }
+        .gold-quote { border-left: 3px solid var(--saffron); padding: 18px 24px; background: rgba(232,130,26,0.05); border-radius: 0 8px 8px 0; margin: 30px 0; }
+        .gold-quote p { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: var(--gold-light); margin: 0 !important; }
+
+        /* HIGHLIGHTS */
+        .highlights-block { margin-bottom: 64px; }
+        .hl-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 28px; }
+        .hl-card { background: var(--dark-3); border: 1px solid rgba(200,160,80,0.1); border-radius: 10px; padding: 26px 22px; transition: all 0.35s; position: relative; overflow: hidden; }
+        .hl-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--saffron), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+        .hl-card:hover { border-color: rgba(200,160,80,0.3); background: var(--dark-4); transform: translateY(-4px); }
+        .hl-card:hover::before { transform: scaleX(1); }
+        .hl-icon { width: 46px; height: 46px; background: rgba(232,130,26,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--saffron); margin-bottom: 14px; }
+        .hl-card h4 { font-size: 14px; font-weight: 600; color: var(--cream); margin-bottom: 5px; }
+        .hl-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+        /* INFRASTRUCTURE */
+        .infra-block { margin-bottom: 64px; }
+        .infra-list { margin-top: 28px; }
+        .infra-item { display: flex; gap: 20px; align-items: flex-start; padding: 22px 0; border-bottom: 1px solid rgba(200,160,80,0.07); transition: all 0.3s; }
+        .infra-item:last-child { border-bottom: none; }
+        .infra-item:hover { padding-left: 8px; }
+        .infra-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: rgba(200,160,80,0.22); line-height: 1; min-width: 44px; transition: color 0.3s; }
+        .infra-item:hover .infra-num { color: var(--saffron); }
+        .infra-text h4 { font-size: 15px; font-weight: 600; color: var(--cream); margin-bottom: 5px; }
+        .infra-text p { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; }
+
+        /* DETAILS TABLE */
+        .details-block { margin-bottom: 64px; }
+        .details-table { margin-top: 28px; border: 1px solid rgba(200,160,80,0.12); border-radius: 12px; overflow: hidden; }
+        .dt-row { display: grid; grid-template-columns: 1fr 1.6fr; border-bottom: 1px solid rgba(200,160,80,0.07); }
+        .dt-row:last-child { border-bottom: none; }
+        .dt-row:nth-child(even) { background: rgba(200,160,80,0.03); }
+        .dt-label { padding: 14px 20px; font-size: 12.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; border-right: 1px solid rgba(200,160,80,0.07); }
+        .dt-val { padding: 14px 20px; font-size: 13.5px; color: var(--cream-dim); }
+        .dt-val.hl { color: var(--gold-light); font-weight: 600; }
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+        .badge-green { background: rgba(46,125,50,0.18); color: #81C784; border: 1px solid rgba(46,125,50,0.3); }
+
+        /* INVESTMENT */
+        .investment-block { margin-bottom: 64px; }
+        .inv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+        .inv-card { background: var(--dark-3); border: 1px solid rgba(200,160,80,0.1); border-radius: 10px; padding: 24px 20px; transition: all 0.3s; }
+        .inv-card:hover { border-color: rgba(200,160,80,0.3); background: var(--dark-4); }
+        .inv-card i { font-size: 22px; color: var(--saffron); margin-bottom: 12px; display: block; }
+        .inv-card h4 { font-size: 14px; font-weight: 600; color: var(--cream); margin-bottom: 6px; }
+        .inv-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+        /* MAP */
+        .map-block { margin-bottom: 64px; }
+        .map-wrapper { margin-top: 22px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(200,160,80,0.15); position: relative; }
+        .map-wrapper iframe { width: 100%; height: 420px; display: block; border: none; }
+        .map-pin-label { position: absolute; top: 16px; left: 16px; background: rgba(12,10,8,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(200,160,80,0.3); padding: 10px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px; pointer-events: none; z-index: 2; }
+        .map-pin-label i { color: var(--saffron); }
+        .map-pin-label span { font-size: 13px; font-weight: 500; color: var(--cream); }
+        .loc-advantages { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+        .loc-item { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--dark-3); border-radius: 8px; border: 1px solid rgba(200,160,80,0.07); font-size: 13px; color: var(--cream-dim); transition: all 0.3s; }
+        .loc-item:hover { border-color: rgba(200,160,80,0.2); color: var(--cream); }
+        .loc-item i { color: var(--saffron); font-size: 12px; width: 16px; }
+
+        /* SIDEBAR */
+        .enquiry-card { position: sticky; top: 90px; background: var(--dark-3); border: 1px solid rgba(200,160,80,0.18); border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+        .card-header { background: linear-gradient(135deg, rgba(232,130,26,0.14), rgba(12,10,8,0.3)); border-bottom: 1px solid rgba(200,160,80,0.15); padding: 28px 28px 24px; }
+        .card-header .rera-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(46,125,50,0.15); border: 1px solid rgba(46,125,50,0.3); color: #81C784; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; letter-spacing: 0.5px; }
+        .card-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--cream); margin-bottom: 5px; }
+        .card-header p { font-size: 13px; color: var(--text-muted); }
+        .card-body { padding: 26px 28px; }
+        .card-body input, .card-body textarea, .card-body select { width: 100%; padding: 13px 16px; margin-bottom: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(200,160,80,0.15); border-radius: 8px; color: var(--cream); font-size: 14px; font-family: 'DM Sans', sans-serif; transition: all 0.3s; }
+        .card-body input::placeholder, .card-body textarea::placeholder { color: var(--text-muted); }
+        .card-body input:focus, .card-body textarea:focus, .card-body select:focus { outline: none; border-color: var(--saffron); background: rgba(232,130,26,0.06); box-shadow: 0 0 0 3px rgba(232,130,26,0.1); }
+        .card-body select { cursor: pointer; }
+        .card-body select option { background: var(--dark-3); color: var(--cream); }
+        .card-body textarea { resize: none; height: 86px; }
+        .submit-btn { width: 100%; background: linear-gradient(135deg, var(--saffron) 0%, #C06A10 100%); color: white; padding: 15px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; letter-spacing: 0.3px; transition: all 0.35s; box-shadow: 0 6px 25px rgba(232,130,26,0.3); position: relative; overflow: hidden; }
+        .submit-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transition: left 0.5s; }
+        .submit-btn:hover::before { left: 100%; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(232,130,26,0.4); }
+        .card-divider { border: none; border-top: 1px solid rgba(200,160,80,0.1); margin: 22px 0; }
+        .card-contacts { display: flex; flex-direction: column; gap: 11px; }
+        .contact-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 8px; text-decoration: none; font-size: 13.5px; font-weight: 500; transition: all 0.3s; border: 1px solid transparent; }
+        .contact-link.phone { background: rgba(25,118,210,0.1); color: #90CAF9; border-color: rgba(25,118,210,0.2); }
+        .contact-link.phone:hover { background: rgba(25,118,210,0.2); }
+        .contact-link.whatsapp { background: rgba(37,211,102,0.1); color: #69F0AE; border-color: rgba(37,211,102,0.2); }
+        .contact-link.whatsapp:hover { background: rgba(37,211,102,0.2); }
+        .cli { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+        .contact-link.phone .cli { background: rgba(25,118,210,0.2); color: #42A5F5; }
+        .contact-link.whatsapp .cli { background: rgba(37,211,102,0.2); color: #25d366; }
+        .trust-badges { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+        .trust-badge { background: rgba(255,255,255,0.03); border: 1px solid rgba(200,160,80,0.1); border-radius: 8px; padding: 12px; text-align: center; }
+        .trust-badge i { color: var(--gold); display: block; margin-bottom: 6px; font-size: 18px; }
+        .trust-badge span { font-size: 11px; color: var(--text-muted); line-height: 1.3; display: block; }
+
+        /* FLOATING */
+        .float-btns { position: fixed; right: 22px; bottom: 90px; display: flex; flex-direction: column; gap: 14px; z-index: 9000; }
+        .float-btn { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; text-decoration: none; color: white; box-shadow: 0 4px 18px rgba(0,0,0,0.4); transition: transform 0.3s, box-shadow 0.3s; }
+        .float-btn:hover { transform: scale(1.12); }
+        .float-btn.chat { background: linear-gradient(135deg, var(--saffron), #C06A10); }
+        .float-btn.wa { background: #25d366; }
+
+        /* TOAST */
+        .toast { display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--dark-3); border: 1px solid rgba(102,187,106,0.4); border-radius: 12px; padding: 18px 30px; text-align: center; z-index: 10001; box-shadow: 0 10px 40px rgba(0,0,0,0.5); min-width: 300px; animation: toastIn 0.4s ease; }
+        .toast.active { display: block; }
+        .toast i { color: #66BB6A; font-size: 32px; display: block; margin-bottom: 10px; }
+        .toast h4 { color: var(--cream); font-size: 18px; margin-bottom: 4px; }
+        .toast p { color: var(--text-muted); font-size: 13px; }
+        @keyframes toastIn { from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)} }
+
+        /* FOOTER */
+        .footer { background: var(--dark-2); border-top: 1px solid rgba(200,160,80,0.1); padding: 60px 0 28px; }
+        .footer .wrap { max-width: 1280px; margin: 0 auto; padding: 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.4fr; gap: 60px; margin-bottom: 48px; }
+        .footer-logo { width: 52px; height: 52px; border-radius: 50%; background: white; padding: 5px; margin-bottom: 16px; }
+        .footer-brand p { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; }
+        .footer h4 { font-size: 14px; font-weight: 600; color: var(--cream-dim); margin-bottom: 18px; letter-spacing: 0.5px; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 11px; }
+        .footer ul a { color: var(--text-muted); text-decoration: none; font-size: 13.5px; transition: color 0.3s; }
+        .footer ul a:hover { color: var(--gold-light); }
+        .fci { display: flex; flex-direction: column; gap: 11px; }
+        .fci-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+        .fci-item i { color: var(--saffron); margin-top: 3px; font-size: 12px; }
+        .footer-bottom { border-top: 1px solid rgba(200,160,80,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { width: 38px; height: 38px; border-radius: 50%; background: rgba(200,160,80,0.08); border: 1px solid rgba(200,160,80,0.15); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px; transition: all 0.3s; text-decoration: none; }
+        .footer-social a:hover { background: var(--saffron); color: white; border-color: var(--saffron); }
+        .footer-copy { font-size: 12.5px; color: var(--text-muted); }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp { from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)} }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.75s ease, transform 0.75s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) { .page-main { grid-template-columns: 1fr; gap: 50px; } .enquiry-card { position: static; } .sidebar { order: -1; } }
+        @media (max-width: 768px) {
+            .topbar-left { display: none; }
+            .topbar-right a[href^="mailto"] { display: none; }
+            .topbar-right .social { display: none; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 38px; }
+            .hero-pills { display: none; }
+            .stats-bar .wrap { grid-template-columns: repeat(3,1fr); }
+            .stat-item:nth-child(4), .stat-item:nth-child(5) { display: none; }
+            .hl-grid { grid-template-columns: 1fr 1fr; }
+            .inv-grid { grid-template-columns: 1fr; }
+            .loc-advantages { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+            .page-main { padding: 48px 20px; }
         }
-
-        /* Fallback gradient if no image */
-        .project-hero.no-image {
-            background: linear-gradient(135deg, #1a1f2e 0%, #0d2b6e 50%, #0a0e27 100%);
-        }
-
-        .project-hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 50px 0;
-            width: 100%;
-        }
-
-        .breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 20px;
-        }
-
-        .breadcrumb a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .breadcrumb a:hover { color: #ff5252; }
-        .breadcrumb i { font-size: 10px; }
-        .breadcrumb span { color: white; }
-
-        .project-hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff9800, #f57c00);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .project-hero h1 {
-            font-size: 52px;
-            font-weight: 700;
-            color: white;
-            line-height: 1.1;
-            margin-bottom: 14px;
-        }
-
-        .project-hero-location {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #ff5252;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        /* Main Content Layout */
-        .project-page {
-            background: #1a1f2e;
-            padding: 70px 0;
-        }
-
-        .project-layout {
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 50px;
-            align-items: start;
-        }
-
-        /* Left Column */
-        .project-main {}
-
-        /* Highlights Strip */
-        .highlights-strip {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 50px;
-        }
-
-        .highlight-item {
-            background: #252b3a;
-            border-radius: 14px;
-            padding: 24px 20px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s;
-        }
-
-        .highlight-item:hover {
-            border-color: rgba(255,82,82,0.3);
-            transform: translateY(-4px);
-        }
-
-        .highlight-item i {
-            font-size: 28px;
-            color: #ff5252;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .highlight-item .hl-value {
-            font-size: 22px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 4px;
-        }
-
-        .highlight-item .hl-label {
-            font-size: 12px;
-            color: #9aa5b8;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* About Project */
-        .content-block {
-            margin-bottom: 45px;
-        }
-
-        .content-block h2 {
-            font-size: 26px;
-            color: white;
-            font-weight: 600;
-            margin-bottom: 8px;
-            position: relative;
-            padding-bottom: 14px;
-        }
-
-        .content-block h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: #ff5252;
-            border-radius: 2px;
-        }
-
-        .content-block p {
-            color: #b0b8c8;
-            font-size: 15px;
-            line-height: 1.8;
-            margin-top: 18px;
-        }
-
-        /* Amenities Grid */
-        .amenities-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-top: 20px;
-        }
-
-        .amenity-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: #252b3a;
-            padding: 14px 18px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s;
-        }
-
-        .amenity-item:hover {
-            border-color: rgba(25,118,210,0.3);
-            background: #2a3141;
-        }
-
-        .amenity-item i {
-            color: #1976d2;
-            font-size: 16px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .amenity-item span {
-            color: #d0d8e8;
-            font-size: 14px;
-        }
-
-        /* Right Column – Sticky Card */
-        .project-sidebar {}
-
-        .enquiry-card {
-            background: #252b3a;
-            border-radius: 20px;
-            padding: 35px 30px;
-            border: 1px solid rgba(255,255,255,0.06);
-            position: sticky;
-            top: 90px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
-
-        .enquiry-card h3 {
-            color: white;
-            font-size: 22px;
-            margin-bottom: 6px;
-        }
-
-        .enquiry-card .card-sub {
-            color: #9aa5b8;
-            font-size: 13px;
-            margin-bottom: 28px;
-        }
-
-        .enquiry-card input,
-        .enquiry-card textarea,
-        .enquiry-card select {
-            width: 100%;
-            padding: 14px 18px;
-            margin-bottom: 16px;
-            background: #1a1f2e;
-            border: 2px solid rgba(255,255,255,0.08);
-            border-radius: 10px;
-            color: white;
-            font-size: 14px;
-            font-family: inherit;
-            transition: all 0.3s;
-        }
-
-        .enquiry-card input::placeholder,
-        .enquiry-card textarea::placeholder {
-            color: #6b7280;
-        }
-
-        .enquiry-card input:focus,
-        .enquiry-card textarea:focus,
-        .enquiry-card select:focus {
-            outline: none;
-            border-color: #ff5252;
-            box-shadow: 0 0 0 3px rgba(255,82,82,0.1);
-        }
-
-        .enquiry-card select option {
-            background: #1a1f2e;
-            color: white;
-        }
-
-        .enquiry-card textarea {
-            resize: none;
-            height: 90px;
-        }
-
-        .enquiry-submit {
-            width: 100%;
-            background: linear-gradient(135deg, #ff5252, #d32f2f);
-            color: white;
-            padding: 16px;
-            border: none;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 8px 25px rgba(255,82,82,0.3);
-        }
-
-        .enquiry-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 35px rgba(255,82,82,0.4);
-        }
-
-        .card-divider {
-            border: none;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            margin: 25px 0;
-        }
-
-        .card-contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .card-contact-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #b0b8c8;
-            text-decoration: none;
-            font-size: 14px;
-            padding: 10px 14px;
-            border-radius: 8px;
-            transition: all 0.3s;
-            background: rgba(255,255,255,0.03);
-        }
-
-        .card-contact-link:hover {
-            background: rgba(255,255,255,0.07);
-            color: white;
-        }
-
-        .card-contact-link i {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 15px;
-        }
-
-        .card-contact-link.phone i { background: rgba(25,118,210,0.2); color: #1976d2; }
-        .card-contact-link.whatsapp i { background: rgba(37,211,102,0.2); color: #25d366; }
-
-        /* Location Section */
-        .location-map {
-            border-radius: 16px;
-            overflow: hidden;
-            margin-top: 20px;
-            border: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .location-map iframe {
-            width: 100%;
-            height: 280px;
-            display: block;
-            border: none;
-            filter: invert(90%) hue-rotate(180deg);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .project-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .project-hero h1 {
-                font-size: 36px;
-            }
-
-            .highlights-strip {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
-            }
-
-            .enquiry-card {
-                position: static;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .project-hero {
-                height: 420px;
-            }
-
-            .project-hero h1 {
-                font-size: 28px;
-            }
-
-            .highlights-strip {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .amenities-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-page {
-                padding: 40px 0;
-            }
-        }
-
-        /* View details link style for card */
-        .view-details-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: #ff5252;
-            font-size: 13px;
-            font-weight: 600;
-            margin-top: 12px;
-            transition: gap 0.3s;
-        }
-
-        .project-card-link:hover .view-details-link {
-            gap: 10px;
+        @media (max-width: 480px) {
+            .hero-cta { flex-direction: column; }
+            .btn-primary, .btn-ghost { width: 100%; text-align: center; padding: 14px 24px; }
+            .hl-grid { grid-template-columns: 1fr; }
+            .stats-bar .wrap { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-left">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>172/B 7th floor, Tower A, The Corenthum, Sector 62, Noida, Uttar Pradesh, 201309</span>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- TOP BAR -->
+<div class="topbar" id="topbar">
+    <div class="wrap">
+        <div class="topbar-left">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>172/B 7th floor, Tower A, The Corenthum, Sector 62, Noida, UP 201309</span>
+        </div>
+        <div class="topbar-right">
+            <a href="tel:9810319001"><i class="fas fa-phone"></i> 9810319001</a>
+            <a href="mailto:info@aarambhrealtors.com"><i class="fas fa-envelope"></i> info@aarambhrealtors.com</a>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
-            <div class="top-bar-right">
-                <a href="tel:9810319001"><i class="fas fa-phone"></i> 9810319001</a>
-                <a href="mailto:info@aarambhrealtors.com"><i class="fas fa-envelope"></i> info@aarambhrealtors.com</a>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#enquiry" class="enquire-pill">Enquire Now</a>
+        </div>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="wrap">
+        <a href="index.html" class="nav-logo"><img src="assets/logo-ar.png" alt="Aarambh Realtors"></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- VIDEO HERO -->
+<section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="assets/hanumat_vihar.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-accent"></div>
+
+    <div class="hero-content">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="projects.html">Projects</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Hanumat Vihar</span>
+        </div>
+        <div class="hero-badge"><i class="fas fa-certificate"></i> RERA Approved · MVDA Sanctioned</div>
+        <h1>Hanumat Vihar<em>Awasiya Yojna</em></h1>
+        <p class="hero-sub">Radha Kund – Ral Road, Vrindavan</p>
+        <div class="hero-location"><i class="fas fa-map-marker-alt"></i> Village Maghera, Vati, Mathura, Uttar Pradesh</div>
+        <div class="hero-pills">
+            <div class="hero-pill"><i class="fas fa-home"></i> Residential Plots</div>
+            <div class="hero-pill"><i class="fas fa-layer-group"></i> 51 Plots</div>
+            <div class="hero-pill"><i class="fas fa-ruler-combined"></i> 2,64,354 m²</div>
+            <div class="hero-pill"><i class="fas fa-calendar-check"></i> Possession by Feb 2029</div>
+        </div>
+        <div class="hero-cta">
+            <a href="#enquiry" class="btn-primary">Book a Site Visit</a>
+            <a href="tel:9810319001" class="btn-ghost"><i class="fas fa-phone" style="margin-right:8px"></i>Call Us Now</a>
+        </div>
+    </div>
+
+    <div class="hero-scroll"><div class="scroll-line"></div><span>SCROLL</span></div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+    <div class="wrap">
+        <div class="stat-item"><div class="stat-val">51</div><div class="stat-label">Total Plots</div></div>
+        <div class="stat-item"><div class="stat-val">2.64L</div><div class="stat-label">Area (m²)</div></div>
+        <div class="stat-item"><div class="stat-val">₹194Cr</div><div class="stat-label">Project Cost</div></div>
+        <div class="stat-item"><div class="stat-val">2029</div><div class="stat-label">Possession</div></div>
+        <div class="stat-item"><div class="stat-val">RERA</div><div class="stat-label">Approved</div></div>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="page-main">
+
+    <!-- LEFT -->
+    <div>
+
+        <!-- About -->
+        <div class="about-block reveal">
+            <h2 class="sec-title">About the Project</h2>
+            <p class="sec-intro">Hanumat Vihar Awasiya Yojna is a RERA-approved, MVDA-sanctioned residential plotted township on Radha Kund – Ral Road, Vrindavan — one of India's most revered spiritual destinations.</p>
+            <p style="color:var(--cream-dim);font-size:15px;line-height:1.85;margin-top:0">Designed for families, investors, retirees and those seeking a second home, the township blends the calm of Vrindavan's spiritual landscape with modern infrastructure. With clear legal titles, structured planning and a rapidly appreciating corridor, Hanumat Vihar offers a rare opportunity to own land at the heart of Braj Bhoomi.</p>
+            <div class="gold-quote">
+                <p>"Owning land in Vrindavan is not just a financial decision — it is a meaningful life investment."</p>
+            </div>
+            <p style="color:var(--cream-dim);font-size:15px;line-height:1.85">The project suits buyers who wish to build a house, retire in peace, create a holiday home or simply secure a long-term family asset in a location where land values continue to rise year after year.</p>
+        </div>
+
+        <!-- Highlights -->
+        <div class="highlights-block reveal">
+            <h2 class="sec-title">Why Hanumat Vihar?</h2>
+            <div class="hl-grid">
+                <div class="hl-card"><div class="hl-icon"><i class="fas fa-file-shield"></i></div><h4>Legally Secure</h4><p>RERA registered & MVDA approved — fully documented for buyer protection.</p></div>
+                <div class="hl-card"><div class="hl-icon"><i class="fas fa-place-of-worship"></i></div><h4>Spiritual Location</h4><p>Proximity to Radha Kund zone, major temples and pilgrimage centres.</p></div>
+                <div class="hl-card"><div class="hl-icon"><i class="fas fa-chart-line"></i></div><h4>High Appreciation</h4><p>Vrindavan's real estate market is growing rapidly with tourism and infrastructure expansion.</p></div>
+                <div class="hl-card"><div class="hl-icon"><i class="fas fa-wallet"></i></div><h4>Affordable Entry</h4><p>Early-stage pricing with strong long-term capital growth potential.</p></div>
+                <div class="hl-card"><div class="hl-icon"><i class="fas fa-road"></i></div><h4>Excellent Connectivity</h4><p>Easy access to Mathura routes, NH-2, and central Vrindavan market.</p></div>
+                <div class="hl-card"><div class="hl-icon"><i class="fas fa-leaf"></i></div><h4>Green & Planned</h4><p>Wide internal roads, parks, tree plantation and organized colony layout.</p></div>
+            </div>
+        </div>
+
+        <!-- Infrastructure -->
+        <div class="infra-block reveal">
+            <h2 class="sec-title">Infrastructure & Amenities</h2>
+            <p class="sec-intro">Every aspect planned with precision — from CBR-based road design to an integrated sewage treatment plant.</p>
+            <div class="infra-list">
+                <div class="infra-item"><div class="infra-num">01</div><div class="infra-text"><h4>Road Network & Footpaths</h4><p>Main arterial roads with flexible pavements designed to CBR soil values. Sub-arteries use flexible or rigid pavements as needed. All footpaths finished with water-permeable material for rainwater percolation.</p></div></div>
+                <div class="infra-item"><div class="infra-num">02</div><div class="infra-text"><h4>Water Supply</h4><p>Underground water drawn until UP Jal Nigam supply is available. Per capita consumption designed at 135 lpcd as per Ministry of Housing & Urban Development guidelines.</p></div></div>
+                <div class="infra-item"><div class="infra-num">03</div><div class="infra-text"><h4>Sewer System & STP</h4><p>Sub-mains in front of all plots connected to trunk mains, terminating at a Sewage Treatment Plant. Rainwater harvesting pits at multiple locations with overflow connected to external drainage.</p></div></div>
+                <div class="infra-item"><div class="infra-num">04</div><div class="infra-text"><h4>Boundary Wall & Plot Demarcation</h4><p>Developer constructs perimeter boundary wall around the entire society. Individual plot demarcations done on-site as per approved MVDA layout. Multiple plot sizes available.</p></div></div>
+                <div class="infra-item"><div class="infra-num">05</div><div class="infra-text"><h4>Parks & Landscaping</h4><p>All parks developed with tot-lot areas, jogging tracks, shrubs and shady trees. Diverse tree species planted along road peripheries and site boundaries.</p></div></div>
+                <div class="infra-item"><div class="infra-num">06</div><div class="infra-text"><h4>Electrical Supply & Street Lighting</h4><p>Network designed as per Indian Electricity Act, UP Electricity Supply Code 2005 and UPERC regulations for township distribution networks.</p></div></div>
+                <div class="infra-item"><div class="infra-num">07</div><div class="infra-text"><h4>Solid Waste Management</h4><p>Door-to-door waste collection via a dedicated maintenance agency. Garbage bins and collection points distributed throughout the township.</p></div></div>
+                <div class="infra-item"><div class="infra-num">08</div><div class="infra-text"><h4>Community Buildings</h4><p>Community infrastructure developed as per the approved layout plan, providing shared spaces for all residents.</p></div></div>
+            </div>
+        </div>
+
+        <!-- Investment -->
+        <div class="investment-block reveal">
+            <h2 class="sec-title">Investment Potential</h2>
+            <p class="sec-intro">Vrindavan's real estate market is growing fast — driven by spiritual tourism, retirement demand, and expanding regional infrastructure.</p>
+            <div class="inv-grid">
+                <div class="inv-card"><i class="fas fa-arrow-trend-up"></i><h4>High Appreciation Potential</h4><p>Land values rising consistently with tourism and infrastructure growth.</p></div>
+                <div class="inv-card"><i class="fas fa-house-circle-check"></i><h4>Tangible Plotted Asset</h4><p>A clear-title, demarcated plot — a physical, low-maintenance asset you own outright.</p></div>
+                <div class="inv-card"><i class="fas fa-people-group"></i><h4>Tourism Rental Demand</h4><p>Steady pilgrim and tourist footfall creates strong rental income potential.</p></div>
+                <div class="inv-card"><i class="fas fa-piggy-bank"></i><h4>Long-Term Capital Growth</h4><p>Early-stage pricing combined with Vrindavan's expanding footprint ensures strong returns.</p></div>
+            </div>
+        </div>
+
+        <!-- Project Details -->
+        <div class="details-block reveal">
+            <h2 class="sec-title">Project Details</h2>
+            <div class="details-table">
+                <div class="dt-row"><div class="dt-label">Project Name</div><div class="dt-val hl">Hanumat Vihar Avasiya Yojna</div></div>
+                <div class="dt-row"><div class="dt-label">Project Type</div><div class="dt-val">New Residential Plotted Township</div></div>
+                <div class="dt-row"><div class="dt-label">RERA Status</div><div class="dt-val"><span class="badge badge-green"><i class="fas fa-check-circle" style="margin-right:5px"></i>RERA Approved</span></div></div>
+                <div class="dt-row"><div class="dt-label">Sanctioning Authority</div><div class="dt-val">Mathura-Vrindavan Development Authority (MVDA)</div></div>
+                <div class="dt-row"><div class="dt-label">Total Area</div><div class="dt-val">2,66,431 sq.m. &nbsp;≈ 28,45,480 sq.ft.</div></div>
+                <div class="dt-row"><div class="dt-label">Total Plots</div><div class="dt-val hl">51 Plots</div></div>
+                <div class="dt-row"><div class="dt-label">Project Cost</div><div class="dt-val hl">₹ 194.53 Crores</div></div>
+                <div class="dt-row"><div class="dt-label">Proposed Start</div><div class="dt-val">21 March 2024</div></div>
+                <div class="dt-row"><div class="dt-label">Proposed Completion</div><div class="dt-val hl">26 February 2029</div></div>
+                <div class="dt-row"><div class="dt-label">State / District</div><div class="dt-val">Uttar Pradesh / Mathura</div></div>
+                <div class="dt-row"><div class="dt-label">Village / Locality</div><div class="dt-val">Village Maghera, Vati, Mathura</div></div>
+                <div class="dt-row"><div class="dt-label">Khasra Nos.</div><div class="dt-val" style="font-size:12px;line-height:1.65">282, 317M, 371, 373, 382, 281, 294, 295, 299M, 308, 309, 307, 341, 344, 345, 346, 292, 319, 333M, 334, 370, 372, 374, 381, 386, 290, 293, 314, 315, 316M, 324M, 296, 297, 318, 335M, 366M, 367, 368</div></div>
+            </div>
+        </div>
+
+        <!-- Location & Map -->
+        <div class="map-block reveal" id="location">
+            <h2 class="sec-title">Location</h2>
+            <p class="sec-intro">Situated on Radha Kund – Ral Road, one of Vrindavan's fastest developing residential corridors — with direct access to major temples, Mathura routes and upcoming infrastructure.</p>
+            <div class="loc-advantages">
+                <div class="loc-item"><i class="fas fa-om"></i> Near Radha Kund Spiritual Zone</div>
+                <div class="loc-item"><i class="fas fa-road"></i> Easy Access to NH-2</div>
+                <div class="loc-item"><i class="fas fa-city"></i> Close to Central Vrindavan</div>
+                <div class="loc-item"><i class="fas fa-train"></i> Near Mathura Junction</div>
+                <div class="loc-item"><i class="fas fa-mosque"></i> Walking Distance to Temples</div>
+                <div class="loc-item"><i class="fas fa-hospital"></i> Hospitals & Schools Nearby</div>
+            </div>
+            <div class="map-wrapper">
+                <div class="map-pin-label"><i class="fas fa-map-marker-alt"></i><span>Hanumat Vihar Site Office, Vrindavan</span></div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.6128!2d77.5976757!3d27.5574929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39736d1dbb72ee45%3A0xe817cfff8b2e169c!2sHanumat%20Vihar%20Avasiya%20Yojna%20-%20Site%20Office!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+    </div><!-- /left -->
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="enquiry">
+        <div class="enquiry-card">
+            <div class="card-header">
+                <div class="rera-tag"><i class="fas fa-check-circle"></i> RERA Approved Project</div>
+                <h3>Book Your Plot</h3>
+                <p>Fill in your details — our team will call you within 24 hours.</p>
+            </div>
+            <div class="card-body">
+                <form onsubmit="handleSubmit(event)">
+                    <input type="text" placeholder="Your Full Name" required>
+                    <input type="tel" placeholder="Mobile Number" pattern="[0-9]{10}" maxlength="10" required>
+                    <input type="email" placeholder="Email Address (Optional)">
+                    <select>
+                        <option value="">Plot Size (Optional)</option>
+                        <option>50 sq. yards</option>
+                        <option>100 sq. yards</option>
+                        <option>200 sq. yards</option>
+                        <option>Other / Flexible</option>
+                    </select>
+                    <textarea placeholder="Any specific query or message..."></textarea>
+                    <button type="submit" class="submit-btn"><i class="fas fa-paper-plane" style="margin-right:8px"></i>Send Enquiry</button>
+                </form>
+                <hr class="card-divider">
+                <div class="card-contacts">
+                    <a href="tel:9810319001" class="contact-link phone">
+                        <div class="cli"><i class="fas fa-phone"></i></div>
+                        <div><div style="font-size:11px;color:var(--text-muted);margin-bottom:2px">Call Us</div>+91 98103 19001</div>
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=919810319001&text=Hi%20Aarambh%20Realtors%2C%20I%20am%20interested%20in%20Hanumat%20Vihar%20Awasiya%20Yojna%2C%20Vrindavan.%20Please%20share%20details." target="_blank" class="contact-link whatsapp">
+                        <div class="cli"><i class="fab fa-whatsapp"></i></div>
+                        <div><div style="font-size:11px;color:var(--text-muted);margin-bottom:2px">WhatsApp</div>Message Us</div>
+                    </a>
                 </div>
-                <a href="#" class="enquire-btn" onclick="openModal(); return false;">Enquire Now</a>
+                <div class="trust-badges">
+                    <div class="trust-badge"><i class="fas fa-file-contract"></i><span>RERA<br>Registered</span></div>
+                    <div class="trust-badge"><i class="fas fa-building-columns"></i><span>MVDA<br>Approved</span></div>
+                    <div class="trust-badge"><i class="fas fa-shield-halved"></i><span>Clear<br>Title</span></div>
+                    <div class="trust-badge"><i class="fas fa-handshake"></i><span>Transparent<br>Buying</span></div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar visible scrolled">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html"><img src="assets/logo-ar.png" alt="Aarambh Realtors"></a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+</div><!-- /page-main -->
 
-    <!-- Project Hero -->
-    <section class="project-hero no-image">
-        <div class="project-hero-content">
-            <div class="container">
-                <div class="breadcrumb">
-                    <a href="index.html">Home</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <a href="projects.html">Projects</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <span>Hanumat Vihar</span>
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="footer-logo">
+                <p>Trusted real estate consultancy delivering residential and commercial property solutions across NCR, UP and beyond.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Us</h4>
+                <div class="fci">
+                    <div class="fci-item"><i class="fas fa-map-marker-alt"></i><span>172/B 7th floor, Tower A, The Corenthum, Sector 62, Noida, UP 201309</span></div>
+                    <div class="fci-item"><i class="fas fa-phone"></i><span>9810319001 · 9654674199</span></div>
+                    <div class="fci-item"><i class="fas fa-envelope"></i><span>info@aarambhrealtors.com</span></div>
                 </div>
-                <div class="project-hero-badge">✨ New Launch</div>
-                <h1>Hanumat Vihar</h1>
-                <p class="project-hero-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Vrindavan, Uttar Pradesh
-                </p>
             </div>
         </div>
-    </section>
-
-    <!-- Main Project Page -->
-    <section class="project-page">
-        <div class="container">
-            <div class="project-layout">
-
-                <!-- Left: Main Content -->
-                <div class="project-main">
-
-                    <!-- Highlights Strip -->
-                    <div class="highlights-strip">
-                        <div class="highlight-item">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <div class="hl-value">Vrindavan</div>
-                            <div class="hl-label">Location</div>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-home"></i>
-                            <div class="hl-value">Residential</div>
-                            <div class="hl-label">Property Type</div>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-tag"></i>
-                            <div class="hl-value">New Launch</div>
-                            <div class="hl-label">Status</div>
-                        </div>
-                    </div>
-
-                    <!-- About -->
-                    <div class="content-block">
-                        <h2>About Hanumat Vihar</h2>
-                        <p>
-                            Hanumat Vihar is a thoughtfully planned residential plot community nestled in the sacred and serene city of Vrindavan, Uttar Pradesh. Set amidst the timeless spiritual heritage of Braj Bhoomi, this project offers you the rare opportunity to own a piece of land in one of India's most revered destinations.
-                        </p>
-                        <p>
-                            Whether you envision a peaceful retirement home, a spiritual retreat, or a sound long-term investment, Hanumat Vihar delivers the perfect blend of tranquility, connectivity, and modern infrastructure. The project is designed with a deep respect for the local culture, keeping the natural greenery and devotional atmosphere intact.
-                        </p>
-                        <p>
-                            With well-laid roads, essential utilities, and a gated layout, Hanumat Vihar ensures that your dream home rises on a foundation of trust, security, and spiritual harmony.
-                        </p>
-                    </div>
-
-                    <!-- Amenities -->
-                    <div class="content-block">
-                        <h2>Amenities & Features</h2>
-                        <div class="amenities-grid">
-                            <div class="amenity-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Gated & Secured Community</span>
-                            </div>
-                            <div class="amenity-item">
-                                <i class="fas fa-road"></i>
-                                <span>Wide Internal Roads</span>
-                            </div>
-                            <div class="amenity-item">
-                                <i class="fas fa-bolt"></i>
-                                <span>24/7 Electricity Supply</span>
-                            </div>
-                            <div class="amenity-item">
-                                <i class="fas fa-tint"></i>
-                                <span>Piped Water Connection</span>
-                            </div>
-                            <div class="amenity-item">
-                                <i class="fas fa-tree"></i>
-                                <span>Green Landscaped Areas</span>
-                            </div>
-                            <div class="amenity-item">
-                                <i class="fas fa-place-of-worship"></i>
-                                <span>Near Major Temples</span>
-                            </div>
-                            <div class="amenity-item">
-                                <i class="fas fa-file-contract"></i>
-                                <span>Clear RERA-Compliant Title</span>
-                            </div>
-                            <div class="amenity-item">
-                                <i class="fas fa-city"></i>
-                                <span>Close to City Centre</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Location -->
-                    <div class="content-block">
-                        <h2>Location</h2>
-                        <p>Hanumat Vihar is strategically situated in Vrindavan, offering easy access to major temples, the Yamuna riverfront, NH-2, and upcoming infrastructure developments in the Mathura-Vrindavan region.</p>
-                        <div class="location-map">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57062.83!2d77.6673!3d27.5706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3973038c5e0e8a09%3A0x88b55c8f8e3b25ba!2sVrindavan%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1707123456789!5m2!1sen!2sin"
-                                allowfullscreen=""
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Right: Enquiry Sidebar -->
-                <div class="project-sidebar">
-                    <div class="enquiry-card">
-                        <h3>Interested in This Project?</h3>
-                        <p class="card-sub">Leave your details and our team will reach out shortly.</p>
-
-                        <form onsubmit="submitSidebarEnquiry(event)">
-                            <input type="text" id="sName" placeholder="Your Name" required>
-                            <input type="tel" id="sPhone" placeholder="Mobile Number" pattern="[0-9]{10}" maxlength="10" required>
-                            <input type="email" id="sEmail" placeholder="Email (Optional)">
-                            <textarea id="sMessage" placeholder="Any specific query..."></textarea>
-                            <button type="submit" class="enquiry-submit">Send Enquiry</button>
-                        </form>
-
-                        <hr class="card-divider">
-
-                        <div class="card-contact-links">
-                            <a href="tel:9810319001" class="card-contact-link phone">
-                                <i class="fas fa-phone"></i>
-                                Call: 9810319001
-                            </a>
-                            <a href="https://api.whatsapp.com/send/?phone=919810319001&text=Hi%20Aarambh%20Realtors,%20I%20am%20interested%20in%20Hanumat%20Vihar,%20Vrindavan&type=phone_number&app_absent=0" target="_blank" class="card-contact-link whatsapp">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp Us
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="footer-bottom">
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
+            <p class="footer-copy">&copy; 2025 Aarambh Realtors. All Rights Reserved.</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="footer-logo">
-                    <p>Trusted real estate company delivering residential and commercial property solutions.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 172/B 7th floor, Tower A, The Corenthum, Sector 62, Noida, Uttar Pradesh, 201309</p>
-                    <p><i class="fas fa-phone"></i> 9810319001, 9654674199</p>
-                    <p><i class="fas fa-envelope"></i> info@aarambhrealtors.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-                <p class="copyright">&copy; 2025 Aarambh Realtors. All Rights Reserved.</p>
-                <p class="privacy-text">Your personal information submitted will not be sold, shared or rented to others.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Success Message -->
-    <div class="success-message" id="successMessage">
-        <i class="fas fa-check-circle"></i>
-        <h4>Thank You!</h4>
-        <p>We have received your enquiry. Our team will contact you soon.</p>
     </div>
+</footer>
 
-    <!-- Floating Buttons -->
-    <div class="floating-buttons">
-        <a href="https://api.whatsapp.com/send/?phone=919810319001&text=Hi%20Aarambh%20Realtors,%20I%20am%20interested%20in%20Hanumat%20Vihar,%20Vrindavan&type=phone_number&app_absent=0" class="float-btn whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
+<!-- TOAST -->
+<div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <h4>Enquiry Received!</h4>
+    <p>Our team will contact you within 24 hours.</p>
+</div>
 
-    <script>
-        // Scroll Progress
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (scrollTop / scrollHeight) * 100;
-            document.getElementById('scrollProgress').style.width = scrolled + '%';
-        });
+<!-- FLOAT BUTTONS -->
+<div class="float-btns">
+    <a href="#enquiry" class="float-btn chat"><i class="fas fa-comment-dots"></i></a>
+    <a href="https://api.whatsapp.com/send/?phone=919810319001&text=Hi%20Aarambh%20Realtors%2C%20I%20am%20interested%20in%20Hanumat%20Vihar%20Awasiya%20Yojna%2C%20Vrindavan." class="float-btn wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
 
-        // Sidebar Enquiry
-        function submitSidebarEnquiry(e) {
-            e.preventDefault();
-            const successMsg = document.getElementById('successMessage');
-            successMsg.classList.add('active');
-            setTimeout(() => successMsg.classList.remove('active'), 3500);
-            e.target.reset();
-        }
+<script>
+    // Scroll progress
+    window.addEventListener('scroll', () => {
+        const h = document.documentElement;
+        document.getElementById('scrollProg').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+    });
 
-        // Top Bar scroll hide
-        let lastScroll = 0;
-        const topBar = document.querySelector('.top-bar');
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll && currentScroll > 200) {
-                topBar.classList.add('hidden');
-            } else {
-                topBar.classList.remove('hidden');
-            }
-            lastScroll = currentScroll;
-        });
-    </script>
+    // Topbar & navbar scroll behaviour
+    let lastSc = 0;
+    const topbar = document.getElementById('topbar');
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        const cur = window.pageYOffset;
+        topbar.classList.toggle('hidden', cur > lastSc && cur > 120);
+        navbar.classList.toggle('scrolled', cur > 60);
+        lastSc = cur;
+    });
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+        { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Form submit
+    function handleSubmit(e) {
+        e.preventDefault();
+        const toast = document.getElementById('toast');
+        toast.classList.add('active');
+        setTimeout(() => toast.classList.remove('active'), 4000);
+        e.target.reset();
+    }
+</script>
 </body>
 </html>
