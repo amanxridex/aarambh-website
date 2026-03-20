@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Hanumat Vihar - Vrindavan | Aarambh Realtors</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== HANUMAT VIHAR PAGE STYLES ===== */
+
+        /* Page Hero */
+        .project-hero {
+            position: relative;
+            height: 520px;
+            background: url('assets/hanumat_vihar.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10,14,39,0.3) 0%,
+                rgba(10,14,39,0.85) 100%
+            );
+        }
+
+        /* Fallback gradient if no image */
+        .project-hero.no-image {
+            background: linear-gradient(135deg, #1a1f2e 0%, #0d2b6e 50%, #0a0e27 100%);
+        }
+
+        .project-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 50px 0;
+            width: 100%;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover { color: #ff5252; }
+        .breadcrumb i { font-size: 10px; }
+        .breadcrumb span { color: white; }
+
+        .project-hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .project-hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        .project-hero-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ff5252;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Main Content Layout */
+        .project-page {
+            background: #1a1f2e;
+            padding: 70px 0;
+        }
+
+        .project-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* Left Column */
+        .project-main {}
+
+        /* Highlights Strip */
+        .highlights-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .highlight-item {
+            background: #252b3a;
+            border-radius: 14px;
+            padding: 24px 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+
+        .highlight-item:hover {
+            border-color: rgba(255,82,82,0.3);
+            transform: translateY(-4px);
+        }
+
+        .highlight-item i {
+            font-size: 28px;
+            color: #ff5252;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .highlight-item .hl-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .highlight-item .hl-label {
+            font-size: 12px;
+            color: #9aa5b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* About Project */
+        .content-block {
+            margin-bottom: 45px;
+        }
+
+        .content-block h2 {
+            font-size: 26px;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 8px;
+            position: relative;
+            padding-bottom: 14px;
+        }
+
+        .content-block h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #ff5252;
+            border-radius: 2px;
+        }
+
+        .content-block p {
+            color: #b0b8c8;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-top: 18px;
+        }
+
+        /* Amenities Grid */
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #252b3a;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+
+        .amenity-item:hover {
+            border-color: rgba(25,118,210,0.3);
+            background: #2a3141;
+        }
+
+        .amenity-item i {
+            color: #1976d2;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .amenity-item span {
+            color: #d0d8e8;
+            font-size: 14px;
+        }
+
+        /* Right Column – Sticky Card */
+        .project-sidebar {}
+
+        .enquiry-card {
+            background: #252b3a;
+            border-radius: 20px;
+            padding: 35px 30px;
+            border: 1px solid rgba(255,255,255,0.06);
+            position: sticky;
+            top: 90px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .enquiry-card h3 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .enquiry-card .card-sub {
+            color: #9aa5b8;
+            font-size: 13px;
+            margin-bottom: 28px;
+        }
+
+        .enquiry-card input,
+        .enquiry-card textarea,
+        .enquiry-card select {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            background: #1a1f2e;
+            border: 2px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .enquiry-card input::placeholder,
+        .enquiry-card textarea::placeholder {
+            color: #6b7280;
+        }
+
+        .enquiry-card input:focus,
+        .enquiry-card textarea:focus,
+        .enquiry-card select:focus {
+            outline: none;
+            border-color: #ff5252;
+            box-shadow: 0 0 0 3px rgba(255,82,82,0.1);
+        }
+
+        .enquiry-card select option {
+            background: #1a1f2e;
+            color: white;
+        }
+
+        .enquiry-card textarea {
+            resize: none;
+            height: 90px;
+        }
+
+        .enquiry-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #ff5252, #d32f2f);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(255,82,82,0.3);
+        }
+
+        .enquiry-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(255,82,82,0.4);
+        }
+
+        .card-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            margin: 25px 0;
+        }
+
+        .card-contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #b0b8c8;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .card-contact-link:hover {
+            background: rgba(255,255,255,0.07);
+            color: white;
+        }
+
+        .card-contact-link i {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+        }
+
+        .card-contact-link.phone i { background: rgba(25,118,210,0.2); color: #1976d2; }
+        .card-contact-link.whatsapp i { background: rgba(37,211,102,0.2); color: #25d366; }
+
+        /* Location Section */
+        .location-map {
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 280px;
+            display: block;
+            border: none;
+            filter: invert(90%) hue-rotate(180deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .project-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .project-hero h1 {
+                font-size: 36px;
+            }
+
+            .highlights-strip {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            .enquiry-card {
+                position: static;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .project-hero {
+                height: 420px;
+            }
+
+            .project-hero h1 {
+                font-size: 28px;
+            }
+
+            .highlights-strip {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-page {
+                padding: 40px 0;
+            }
+        }
+
+        /* View details link style for card */
+        .view-details-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #ff5252;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+            transition: gap 0.3s;
+        }
+
+        .project-card-link:hover .view-details-link {
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>172/B 7th floor, Tower A, The Corenthum, Sector 62, Noida, Uttar Pradesh, 201309</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="tel:9810319001"><i class="fas fa-phone"></i> 9810319001</a>
+                <a href="mailto:info@aarambhrealtors.com"><i class="fas fa-envelope"></i> info@aarambhrealtors.com</a>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <a href="#" class="enquire-btn" onclick="openModal(); return false;">Enquire Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar visible scrolled">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo-ar.png" alt="Aarambh Realtors"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero no-image">
+        <div class="project-hero-content">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="projects.html">Projects</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Hanumat Vihar</span>
+                </div>
+                <div class="project-hero-badge">✨ New Launch</div>
+                <h1>Hanumat Vihar</h1>
+                <p class="project-hero-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Vrindavan, Uttar Pradesh
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Project Page -->
+    <section class="project-page">
+        <div class="container">
+            <div class="project-layout">
+
+                <!-- Left: Main Content -->
+                <div class="project-main">
+
+                    <!-- Highlights Strip -->
+                    <div class="highlights-strip">
+                        <div class="highlight-item">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <div class="hl-value">Vrindavan</div>
+                            <div class="hl-label">Location</div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-home"></i>
+                            <div class="hl-value">Residential</div>
+                            <div class="hl-label">Property Type</div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-tag"></i>
+                            <div class="hl-value">New Launch</div>
+                            <div class="hl-label">Status</div>
+                        </div>
+                    </div>
+
+                    <!-- About -->
+                    <div class="content-block">
+                        <h2>About Hanumat Vihar</h2>
+                        <p>
+                            Hanumat Vihar is a thoughtfully planned residential plot community nestled in the sacred and serene city of Vrindavan, Uttar Pradesh. Set amidst the timeless spiritual heritage of Braj Bhoomi, this project offers you the rare opportunity to own a piece of land in one of India's most revered destinations.
+                        </p>
+                        <p>
+                            Whether you envision a peaceful retirement home, a spiritual retreat, or a sound long-term investment, Hanumat Vihar delivers the perfect blend of tranquility, connectivity, and modern infrastructure. The project is designed with a deep respect for the local culture, keeping the natural greenery and devotional atmosphere intact.
+                        </p>
+                        <p>
+                            With well-laid roads, essential utilities, and a gated layout, Hanumat Vihar ensures that your dream home rises on a foundation of trust, security, and spiritual harmony.
+                        </p>
+                    </div>
+
+                    <!-- Amenities -->
+                    <div class="content-block">
+                        <h2>Amenities & Features</h2>
+                        <div class="amenities-grid">
+                            <div class="amenity-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Gated & Secured Community</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-road"></i>
+                                <span>Wide Internal Roads</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>24/7 Electricity Supply</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-tint"></i>
+                                <span>Piped Water Connection</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-tree"></i>
+                                <span>Green Landscaped Areas</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-place-of-worship"></i>
+                                <span>Near Major Temples</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-file-contract"></i>
+                                <span>Clear RERA-Compliant Title</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-city"></i>
+                                <span>Close to City Centre</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="content-block">
+                        <h2>Location</h2>
+                        <p>Hanumat Vihar is strategically situated in Vrindavan, offering easy access to major temples, the Yamuna riverfront, NH-2, and upcoming infrastructure developments in the Mathura-Vrindavan region.</p>
+                        <div class="location-map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57062.83!2d77.6673!3d27.5706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3973038c5e0e8a09%3A0x88b55c8f8e3b25ba!2sVrindavan%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1707123456789!5m2!1sen!2sin"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Enquiry Sidebar -->
+                <div class="project-sidebar">
+                    <div class="enquiry-card">
+                        <h3>Interested in This Project?</h3>
+                        <p class="card-sub">Leave your details and our team will reach out shortly.</p>
+
+                        <form onsubmit="submitSidebarEnquiry(event)">
+                            <input type="text" id="sName" placeholder="Your Name" required>
+                            <input type="tel" id="sPhone" placeholder="Mobile Number" pattern="[0-9]{10}" maxlength="10" required>
+                            <input type="email" id="sEmail" placeholder="Email (Optional)">
+                            <textarea id="sMessage" placeholder="Any specific query..."></textarea>
+                            <button type="submit" class="enquiry-submit">Send Enquiry</button>
+                        </form>
+
+                        <hr class="card-divider">
+
+                        <div class="card-contact-links">
+                            <a href="tel:9810319001" class="card-contact-link phone">
+                                <i class="fas fa-phone"></i>
+                                Call: 9810319001
+                            </a>
+                            <a href="https://api.whatsapp.com/send/?phone=919810319001&text=Hi%20Aarambh%20Realtors,%20I%20am%20interested%20in%20Hanumat%20Vihar,%20Vrindavan&type=phone_number&app_absent=0" target="_blank" class="card-contact-link whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="footer-logo">
+                    <p>Trusted real estate company delivering residential and commercial property solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 172/B 7th floor, Tower A, The Corenthum, Sector 62, Noida, Uttar Pradesh, 201309</p>
+                    <p><i class="fas fa-phone"></i> 9810319001, 9654674199</p>
+                    <p><i class="fas fa-envelope"></i> info@aarambhrealtors.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">&copy; 2025 Aarambh Realtors. All Rights Reserved.</p>
+                <p class="privacy-text">Your personal information submitted will not be sold, shared or rented to others.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <h4>Thank You!</h4>
+        <p>We have received your enquiry. Our team will contact you soon.</p>
+    </div>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://api.whatsapp.com/send/?phone=919810319001&text=Hi%20Aarambh%20Realtors,%20I%20am%20interested%20in%20Hanumat%20Vihar,%20Vrindavan&type=phone_number&app_absent=0" class="float-btn whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Sidebar Enquiry
+        function submitSidebarEnquiry(e) {
+            e.preventDefault();
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('active');
+            setTimeout(() => successMsg.classList.remove('active'), 3500);
+            e.target.reset();
+        }
+
+        // Top Bar scroll hide
+        let lastScroll = 0;
+        const topBar = document.querySelector('.top-bar');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 200) {
+                topBar.classList.add('hidden');
+            } else {
+                topBar.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
