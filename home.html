@@ -13,40 +13,8 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-left">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>172/B 7th floor, Tower A, The Corenthum, Sector 62, Noida, Uttar Pradesh, 201309</span>
-            </div>
-            <div class="top-bar-right">
-                <a href="tel:9810319001"><i class="fas fa-phone"></i> 9810319001</a>
-                <a href="mailto:info@aarambhrealtors.com"><i class="fas fa-envelope"></i> info@aarambhrealtors.com</a>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-                <a href="#" class="enquire-btn" onclick="openModal(); return false;">Enquire Now</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <img src="assets/logo-ar.png" alt="Aarambh Realtors">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Navigation and Top Bar -->
+    <app-navbar></app-navbar>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -328,43 +296,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer scroll-hidden">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand scroll-fade-left">
-                    <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="footer-logo">
-                    <p>Trusted real estate company delivering residential and commercial property solutions.</p>
-                </div>
-                
-                <div class="footer-links scroll-hidden delay-1">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact scroll-fade-right">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 172/B 7th floor, Tower A, The Corenthum, Sector 62, Noida, Uttar Pradesh, 201309</p>
-                    <p><i class="fas fa-phone"></i> 9810319001, 9654674199</p>
-                    <p><i class="fas fa-envelope"></i> info@aarambhrealtors.com</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom scroll-hidden delay-2">
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-                <p class="copyright">&copy; 2025 Aarambh Realtors. All Rights Reserved.</p>
-                <p class="privacy-text">Your personal information (Name, Mobile, Email, City, Query) submitted will not be sold, shared or rented to others. We use this information to send updates about our company and projects and contact you if requested or find it necessary.</p>
-            </div>
-        </div>
-    </footer>
+    <app-footer></app-footer>
 
     <!-- Enquiry Modal -->
     <div class="modal-overlay" id="enquiryModal">
@@ -408,15 +340,8 @@
         <p>We have received your enquiry. Our team will contact you soon.</p>
     </div>
 
-    <!-- Floating Action Buttons (Fixed on scroll) -->
-    <div class="floating-buttons">
-        <a href="#" class="float-btn chat-btn" onclick="openModal(); return false;">
-            <i class="fas fa-comment-dots"></i>
-        </a>
-        <a href="https://api.whatsapp.com/send/?phone=919810319001&text=Hi%20Aarambh%20Realtors,%20I%20am%20interested%20in%20your%20projects&type=phone_number&app_absent=0" class="float-btn whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
+    <!-- Floating Action Buttons -->
+    <app-widgets></app-widgets>
 
     <script>
 
@@ -642,10 +567,19 @@
                 closeModal();
             }
         });
-
-        
     </script>
-    
+    <script src="components.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            VanillaTilt.init(document.querySelectorAll(".project-card"), {
+                max: 15,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.2
+            });
+        });
+    </script>
 
 </body>
 </html>

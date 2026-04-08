@@ -16,25 +16,7 @@
     <div class="cursor-dot"></div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="assets/logo-ar.png" alt="Aarambh Realtors">
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#about.html">About Us</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <button class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+    <app-navbar></app-navbar>
 
     <!-- Hero Section -->
     <section class="projects-hero">
@@ -504,33 +486,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="footer-logo">
-                    <p>Building trust, delivering dreams. Your trusted real estate partner.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-phone"></i> 9810319001</p>
-                    <p><i class="fas fa-envelope"></i> info@aarambhrealtors.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Aarambh Realtors. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <app-footer></app-footer>
 
     <!-- Enquiry Modal -->
     <div class="modal-overlay" id="enquiryModal">
@@ -565,6 +521,10 @@
         </div>
     </div>
 
+    <app-widgets></app-widgets>
+    <!-- Scripts -->
+    <script src="components.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="projects.js"></script>
 </body>
 </html>

@@ -16,39 +16,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="assets/logo-ar.png" alt="Aarambh Realtors">
-            </a>
-            
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-
-            <button class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-
-        <!-- Mobile Nav -->
-        <div class="mobile-nav" id="mobileNav">
-            <button class="mobile-close" id="mobileClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <app-navbar></app-navbar>
 
     <!-- Hero Section -->
     <section class="contact-hero">
@@ -227,25 +195,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="assets/logo-ar.png" alt="Aarambh Realtors">
-                    <p>Building trust, delivering dreams since 2015</p>
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Made with <i class="fas fa-heart"></i> by Aarambh Realtors</p>
-            </div>
-        </div>
-    </footer>
+    <app-footer></app-footer>
 
     <!-- Success Modal -->
     <div class="success-modal" id="successModal">
@@ -259,6 +209,8 @@
         </div>
     </div>
 
+    <app-widgets></app-widgets>
+    <script src="components.js"></script>
     <script src="contact.js"></script>
 </body>
 </html>
