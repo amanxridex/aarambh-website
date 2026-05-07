@@ -6,6 +6,8 @@
     <title>Unlock Your Future | Aarambh Realtors</title>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root {
             --primary: #ff5252;
@@ -13,6 +15,7 @@
             --bg: #0a0e27;
             --text: #ffffff;
             --glass: rgba(255, 255, 255, 0.05);
+            --gl: #F0D080;
         }
 
         * {
@@ -31,10 +34,9 @@
             justify-content: center;
             overflow: hidden;
             background: radial-gradient(circle at top right, #1e2a4a, #0a0e27);
-            padding: 15px; /* Added padding for mobile */
+            padding: 15px;
         }
 
-        /* Animated Background Particles */
         .particles {
             position: fixed;
             top: 0;
@@ -62,8 +64,8 @@
         .form-container {
             width: 100%;
             max-width: 450px;
-            padding: 35px 25px; /* Refined padding */
-            background: rgba(255, 255, 255, 0.04); /* More subtle glass */
+            padding: 35px 25px;
+            background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -104,7 +106,7 @@
         }
 
         h2 {
-            font-size: 26px; /* Slightly smaller for mobile */
+            font-size: 26px;
             margin-bottom: 8px;
             background: linear-gradient(135deg, #fff, #bbb);
             -webkit-background-clip: text;
@@ -138,18 +140,18 @@
             padding: 16px 16px 16px 50px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px; /* Rounder for mobile */
+            border-radius: 16px;
             color: white;
             font-size: 16px;
             transition: all 0.3s;
-            -webkit-appearance: none; /* Fix iOS shadow */
+            -webkit-appearance: none;
         }
 
         input:focus {
             outline: none;
             border-color: var(--primary);
             background: rgba(255, 82, 82, 0.08);
-            transform: scale(1.02); /* Subtle pop on focus */
+            transform: scale(1.02);
         }
 
         .funny-feedback {
@@ -160,7 +162,6 @@
             font-weight: 500;
         }
 
-        /* MCQ Styles - Mobile Optimized */
         .mcq-group {
             margin-bottom: 25px;
         }
@@ -193,12 +194,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 55px; /* Finger-friendly height */
+            min-height: 55px;
         }
 
-        .option-card:active {
-            transform: scale(0.95);
-        }
+        .option-card:active { transform: scale(0.95); }
 
         .option-card.selected {
             background: linear-gradient(135deg, var(--primary), #d32f2f);
@@ -227,9 +226,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        button.next-btn:active, button.submit-btn:active {
-            transform: scale(0.98);
-        }
+        button.next-btn:active, button.submit-btn:active { transform: scale(0.98); }
 
         button:disabled {
             opacity: 0.4;
@@ -237,7 +234,6 @@
             box-shadow: none;
         }
 
-        /* Success Animation */
         .success-overlay {
             position: absolute;
             inset: 0;
@@ -268,30 +264,10 @@
         @media (max-width: 400px) {
             h2 { font-size: 22px; }
             .form-container { padding: 25px 20px; border-radius: 20px; }
-            .options-grid { grid-template-columns: 1fr; } /* Stack on very small phones */
+            .options-grid { grid-template-columns: 1fr; }
             .option-card { min-height: 50px; }
         }
 
-
-        @keyframes pop {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
-        }
-
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ff0;
-            animation: confettiFall 3s infinite;
-        }
-
-        @keyframes confettiFall {
-            0% { transform: translateY(-100px) rotate(0deg); }
-            100% { transform: translateY(500px) rotate(720deg); }
-        }
-
-        /* Emojis */
         .floating-emoji {
             position: absolute;
             font-size: 40px;
@@ -304,24 +280,19 @@
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(10deg); }
         }
-
-        @media (max-width: 480px) {
-            .form-container { padding: 30px 20px; }
-            .options-grid { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
 
     <div class="particles" id="particles"></div>
 
-    <div class="floating-emoji" style="top: 10%; left: 10%; animation-delay: 0s;">🚀</div>
-    <div class="floating-emoji" style="bottom: 15%; right: 10%; animation-delay: 1s;">💰</div>
-    <div class="floating-emoji" style="top: 20%; right: 15%; animation-delay: 2s;">🏡</div>
+    <div class="floating-emoji" style="top: 10%; left: 10%;">🚀</div>
+    <div class="floating-emoji" style="bottom: 15%; right: 10%;">💰</div>
+    <div class="floating-emoji" style="top: 20%; right: 15%;">🏡</div>
 
     <div class="form-container">
         <div class="progress-bar">
-            <div class="progress-fill" id="progress"></div>
+            <div class="progress-fill" id="progress" style="width: 50%;"></div>
         </div>
 
         <!-- Step 1 -->
@@ -376,62 +347,105 @@
             </button>
         </div>
 
-        <!-- Success Screen -->
         <div class="success-overlay" id="successScreen">
-            <div class="check-icon"><i class="fas fa-check"></i></div>
+            <div class="check-icon" style="color: white;"><i class="fas fa-check"></i></div>
             <h2 style="-webkit-text-fill-color: #fff;">Boom! Done! 🎊</h2>
             <p style="color: #9aa5b8; margin-top: 10px;">Taking you to the luxury you deserve...</p>
         </div>
     </div>
 
     <script>
-        // Create particles
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 20; i++) {
-            const p = document.createElement('div');
-            p.className = 'particle';
-            p.style.width = Math.random() * 10 + 'px';
-            p.style.height = p.style.width;
-            p.style.left = Math.random() * 100 + '%';
-            p.style.animationDelay = Math.random() * 20 + 's';
-            p.style.opacity = Math.random();
-            particlesContainer.appendChild(p);
-        }
+        // Supabase Initialization
+        const supabaseUrl = 'https://hjbpogtycujkfdyewshl.supabase.co';
+        const supabaseKey = 'sb_publishable_PccaApiA0dPk5yW4jqYPzQ_VVMDQBJw';
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        let userCoords = { lat: null, lng: null };
+        let currentLeadId = null;
+
+        // Capture Location on Load
+        window.onload = () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        userCoords.lat = position.coords.latitude;
+                        userCoords.lng = position.coords.longitude;
+                        console.log("Location captured:", userCoords);
+                    },
+                    (error) => console.log("Geolocation error:", error.message),
+                    { enableHighAccuracy: true }
+                );
+            }
+            
+            // Create particles
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 15; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.width = Math.random() * 8 + 'px';
+                p.style.height = p.style.width;
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDelay = Math.random() * 20 + 's';
+                particlesContainer.appendChild(p);
+            }
+        };
 
         const nameHints = ["Great name!", "Sounds like a billionaire!", "Legendary!", "Fancy! ✨", "Nice to meet you!"];
-        const phoneHints = ["Validating your VIP status...", "Almost there!", "Last digit? 😉", "Perfect!"];
-
+        
         function validateStep1() {
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
+            const nextBtn = document.getElementById('nextBtn');
             const nameFB = document.getElementById('nameFeedback');
             const phoneFB = document.getElementById('phoneFeedback');
-            const nextBtn = document.getElementById('nextBtn');
 
-            if (name.length > 2) {
-                nameFB.innerText = nameHints[Math.floor(Math.random() * nameHints.length)];
-            } else {
-                nameFB.innerText = "";
-            }
+            if (name.length > 2) nameFB.innerText = nameHints[Math.floor(Math.random() * nameHints.length)];
+            else nameFB.innerText = "";
 
-            if (phone.length === 10) {
-                phoneFB.innerText = "Solid connection! 📱";
-            } else if (phone.length > 0) {
-                phoneFB.innerText = "Need 10 digits to call a Boss.";
-            } else {
-                phoneFB.innerText = "";
-            }
+            if (phone.length === 10) phoneFB.innerText = "Solid connection! 📱";
+            else if (phone.length > 0) phoneFB.innerText = "Need 10 digits to call a Boss.";
+            else phoneFB.innerText = "";
 
             nextBtn.disabled = !(name.length > 2 && phone.length === 10);
         }
 
-        function nextStep() {
-            document.getElementById('step1').classList.remove('active');
-            document.getElementById('step2').classList.add('active');
-            document.getElementById('progress').style.width = '100%';
+        async function nextStep() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const nextBtn = document.getElementById('nextBtn');
+            
+            nextBtn.disabled = true;
+            nextBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Saving...';
+
+            try {
+                // Real-time Step 1 Capture in Supabase
+                const { data, error } = await supabase
+                    .from('website_leads')
+                    .insert([
+                        { 
+                            name: name, 
+                            phone: phone, 
+                            latitude: userCoords.lat, 
+                            longitude: userCoords.lng 
+                        }
+                    ])
+                    .select();
+
+                if (error) throw error;
+                
+                if (data && data.length > 0) currentLeadId = data[0].id;
+
+                document.getElementById('step1').classList.remove('active');
+                document.getElementById('step2').classList.add('active');
+                document.getElementById('progress').style.width = '100%';
+            } catch (err) {
+                console.error("Supabase Error:", err.message);
+                // Fallback to next step even if DB fails to keep user flow
+                document.getElementById('step1').classList.remove('active');
+                document.getElementById('step2').classList.add('active');
+            }
         }
 
-        // Handle MCQ selection
         let selections = { budget: null, purpose: null };
         document.querySelectorAll('.option-card').forEach(card => {
             card.addEventListener('click', function() {
@@ -439,28 +453,36 @@
                 document.querySelectorAll(`.option-card[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
                 this.classList.add('selected');
                 selections[group] = this.dataset.value;
-                
                 document.getElementById('submitBtn').disabled = !(selections.budget && selections.purpose);
             });
         });
 
-        function submitForm() {
+        async function submitForm() {
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Finalizing...';
+
+            try {
+                // Update Step 2 Data in Supabase
+                if (currentLeadId) {
+                    await supabase
+                        .from('website_leads')
+                        .update({ 
+                            budget: selections.budget, 
+                            purpose: selections.purpose 
+                        })
+                        .eq('id', currentLeadId);
+                }
+            } catch (err) {
+                console.error("Supabase Update Error:", err.message);
+            }
+
             const success = document.getElementById('successScreen');
             success.style.display = 'flex';
             
-            // Confetti effect
-            for (let i = 0; i < 30; i++) {
-                const c = document.createElement('div');
-                c.className = 'confetti';
-                c.style.left = Math.random() * 100 + '%';
-                c.style.background = `hsl(${Math.random() * 360}, 70%, 50%)`;
-                c.style.animationDelay = Math.random() * 2 + 's';
-                success.appendChild(c);
-            }
-
             setTimeout(() => {
                 window.location.href = 'shri-tulsi-vatika.html';
-            }, 3000);
+            }, 2500);
         }
     </script>
 </body>
