@@ -360,10 +360,33 @@
         function validateStep1() {
             const n = document.getElementById('name').value;
             const p = document.getElementById('phone').value;
-            document.getElementById('nextBtn1').disabled = !(n.length > 2 && p.length === 10);
+            const nameFB = document.getElementById('nameFeedback');
+            const phoneFB = document.getElementById('phoneFeedback');
+            const nextBtn = document.getElementById('nextBtn1');
+
+            // Name Validation
+            if(n.length > 2) nameFB.innerText = "Legendary Name! ✨";
+            else nameFB.innerText = "";
+
+            // Indian Phone Validation (Starts with 6,7,8,9 and 10 digits)
+            const isValidPhone = /^[6-9]\d{9}$/.test(p);
             
-            if(n.length > 2) document.getElementById('nameFeedback').innerText = "Legendary Name! ✨";
-            if(p.length === 10) document.getElementById('phoneFeedback').innerText = "VIP Connection! 📱";
+            if (p.length > 0) {
+                if (!/^[6-9]/.test(p)) {
+                    phoneFB.innerText = "Indian numbers start with 6, 7, 8, or 9! 🇮🇳";
+                    phoneFB.style.color = "#ff5252";
+                } else if (p.length < 10) {
+                    phoneFB.innerText = "Need 10 digits to reach a Boss.";
+                    phoneFB.style.color = "#F0D080";
+                } else if (isValidPhone) {
+                    phoneFB.innerText = "VIP Connection Verified! 📱";
+                    phoneFB.style.color = "#4caf50";
+                }
+            } else {
+                phoneFB.innerText = "";
+            }
+
+            nextBtn.disabled = !(n.length > 2 && isValidPhone);
         }
 
         async function saveStep1() {
