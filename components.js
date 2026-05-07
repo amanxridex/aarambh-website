@@ -22,14 +22,14 @@ class AppNavbar extends HTMLElement {
 
         <nav class="navbar transition-navbar">
             <div class="container">
-                <a href="index.html" class="logo">
+                <a href="home.html" class="logo">
                     <img src="assets/logo-ar.png" alt="Aarambh Realtors">
                 </a>
                 
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">Home</a></li>
+                    <li><a href="home.html" class="${currentPath === 'home.html' || currentPath === '' ? 'active' : ''}">Home</a></li>
                     <li><a href="about.html" class="${currentPath === 'about.html' ? 'active' : ''}">About Us</a></li>
-                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="home.html#services">Services</a></li>
                     <li><a href="projects.html" class="${currentPath === 'projects.html' ? 'active' : ''}">Projects</a></li>
                     <li><a href="contact.html" class="${currentPath === 'contact.html' ? 'active' : ''}">Contact</a></li>
                     <li class="mobile-only"><a href="#" class="enquire-btn-nav" onclick="openModal()">Enquire Now</a></li>
@@ -118,7 +118,7 @@ class AppFooter extends HTMLElement {
                     <div class="footer-col">
                         <h4>Quick Links</h4>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="home.html">Home</a></li>
                             <li><a href="about.html">About Us</a></li>
                             <li><a href="projects.html">Projects</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
@@ -128,10 +128,10 @@ class AppFooter extends HTMLElement {
                     <div class="footer-col">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><a href="index.html#services">Residential</a></li>
-                            <li><a href="index.html#services">Commercial</a></li>
-                            <li><a href="index.html#services">Farmhouses</a></li>
-                            <li><a href="index.html#services">Premium Plots</a></li>
+                            <li><a href="home.html#services">Residential</a></li>
+                            <li><a href="home.html#services">Commercial</a></li>
+                            <li><a href="home.html#services">Farmhouses</a></li>
+                            <li><a href="home.html#services">Premium Plots</a></li>
                         </ul>
                     </div>
 

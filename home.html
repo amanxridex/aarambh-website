@@ -7,95 +7,77 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-18145753257');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Aarambh Realtors - Building Trust, Delivering Dreams</title>
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
-    <!-- Custom Scrollbar -->
-    <div class="custom-scrollbar" id="customScrollbar"></div>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Navigation and Top Bar -->
+    <!-- Navigation -->
     <app-navbar></app-navbar>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-overlay"></div>
-        
-        <!-- Floating Particles -->
-        <div class="hero-particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
+        <div class="hero-particles" id="heroParticles"></div>
         
         <div class="hero-content">
             <div class="logo-circle-wrapper">
                 <div class="rotating-border"></div>
                 <div class="rotating-border"></div>
                 <div class="rotating-border"></div>
-                <div class="orbit-dots">
-                    <div class="orbit-dot"></div>
-                    <div class="orbit-dot"></div>
-                    <div class="orbit-dot"></div>
-                    <div class="orbit-dot"></div>
-                </div>
                 <div class="logo-circle">
                     <img src="assets/logo-ar.png" alt="Aarambh Realtors">
                 </div>
             </div>
             
             <p class="tagline">YOUR TRUSTED REAL ESTATE PARTNER</p>
-            <h1>Building Trust,<br>Delivering Dreams</h1>
+            <h1>Building Trust,<br><span class="text-gradient">Delivering Dreams</span></h1>
             <p class="categories">Residential | Commercial | Farmhouse | Plots</p>
-            <a href="#projects" class="explore-btn">Explore Projects</a>
+            <div class="hero-actions">
+                <a href="projects.html" class="explore-btn">Explore Projects</a>
+                <a href="#" class="learn-more-btn" onclick="openModal()">Get Free Quote</a>
+            </div>
         </div>
     </section>
 
-    <!-- Desktop/Modern About Us Section -->
-    <section class="modern-about section-reveal scroll-hidden" id="about">
+    <!-- About Section -->
+    <section class="modern-about" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
-                    <span class="section-tag scroll-hidden delay-1">ABOUT US</span>
-                    <h2 class="section-title scroll-hidden delay-2">Building Trust,<br><span class="text-gradient">Delivering Excellence</span></h2>
-                    
-                    <p class="about-text scroll-hidden delay-3">
-                        Aarambh Realtors is a premier real estate consultancy firm dedicated to helping you find your perfect property. With years of experience and a client-centric approach, we specialize in residential, commercial, and investment properties.
+                    <span class="section-tag">PREMIUM REAL ESTATE</span>
+                    <h2 class="section-title">Where Luxury Meets <span class="text-gradient">Trust</span></h2>
+                    <p class="about-text">
+                        Aarambh Realtors is more than just a property consultancy. We are your dedicated partners in navigating the Indian real estate landscape. From premium residential towers to sprawling farmhouses, we bring you the best opportunities with unmatched transparency.
                     </p>
-                    
-                    <a href="about.html" class="learn-more-btn scroll-hidden delay-4">
-                        <span>Discover Our Story</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="about-features">
+                        <div class="feat-item"><i class="fas fa-check-circle"></i> Verified Properties</div>
+                        <div class="feat-item"><i class="fas fa-check-circle"></i> Direct Developer Pricing</div>
+                        <div class="feat-item"><i class="fas fa-check-circle"></i> Expert Legal Support</div>
+                    </div>
+                    <a href="about.html" class="learn-more-btn">Read Our Story <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="about-visual scroll-hidden delay-3">
+                <div class="about-visual">
                     <div class="glass-card trust-card">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-award"></i>
                         <div class="card-info">
                             <h3>10+ Years</h3>
-                            <p>Proven Trust & Excellence</p>
+                            <p>Industry Excellence</p>
                         </div>
                     </div>
                     <div class="glass-card stat-card">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-users"></i>
                         <div class="card-info">
                             <h3>500+</h3>
-                            <p>Happy Families</p>
+                            <p>Satisfied Families</p>
                         </div>
                     </div>
                 </div>
@@ -103,171 +85,148 @@
         </div>
     </section>
 
-    <!-- Modern Our Services Section -->
+    <!-- Services Bento -->
     <section class="modern-services" id="services">
-        <!-- Floating Animated Orbs -->
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        
-        <div class="container container-relative">
-            <div class="section-header center scroll-hidden">
-                <span class="section-tag light">OUR SERVICES</span>
-                <h2 class="section-title light">Comprehensive <span class="text-gradient-alt">Solutions</span></h2>
-                <p class="subtitle light">Tailored real estate expertise for your exclusive needs</p>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">OUR EXPERTISE</span>
+                <h2 class="section-title">Diverse Real Estate <span class="text-gradient">Solutions</span></h2>
             </div>
-            
             <div class="bento-grid">
-                <div class="bento-card bento-wide scroll-scale delay-1">
-                    <div class="bento-icon"><i class="fas fa-home"></i></div>
+                <div class="bento-card bento-wide">
+                    <div class="bento-icon"><i class="fas fa-city"></i></div>
                     <div class="bento-content">
-                        <h4>Residential Properties</h4>
-                        <p>Find your dream home with our wide range of premium residential apartments, villas, and independent floors.</p>
+                        <h4>Residential Projects</h4>
+                        <p>Luxury apartments and villas designed for modern living in prime locations.</p>
                     </div>
-                    <div class="bento-bg"></div>
                 </div>
-
-                <div class="bento-card featured scroll-scale delay-2">
-                    <div class="bento-icon active"><i class="fas fa-building"></i></div>
+                <div class="bento-card">
+                    <div class="bento-icon"><i class="fas fa-store"></i></div>
                     <div class="bento-content">
-                        <h4>Commercial</h4>
-                        <p>Premium office spaces, retail shops, and commercial hubs for your ultimate business growth.</p>
+                        <h4>Commercial Hubs</h4>
+                        <p>Strategic retail and office spaces for maximum ROI.</p>
                     </div>
-                    <div class="bento-bg"></div>
                 </div>
-
-                <div class="bento-card scroll-scale delay-3">
-                    <div class="bento-icon"><i class="fas fa-tree"></i></div>
+                <div class="bento-card">
+                    <div class="bento-icon"><i class="fas fa-leaf"></i></div>
                     <div class="bento-content">
-                        <h4>Farmhouse</h4>
-                        <p>Luxury farmhouses offering a peaceful, private, and serene lifestyle.</p>
+                        <h4>Farmhouses</h4>
+                        <p>Your serene escape in the lap of nature.</p>
                     </div>
-                    <div class="bento-bg"></div>
                 </div>
-
-                <div class="bento-card bento-tall scroll-scale delay-4">
+                <div class="bento-card bento-wide">
                     <div class="bento-icon"><i class="fas fa-map-marked-alt"></i></div>
                     <div class="bento-content">
                         <h4>Premium Plots</h4>
-                        <p>Invest in prime land at strategic, rapidly developing locations for incredible future returns.</p>
+                        <p>Invest in land that grows with the future. High appreciation potential plots.</p>
                     </div>
-                    <div class="bento-bg"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Swiper Projects Section -->
-    <section class="modern-projects section-reveal" id="projects">
+    <!-- Projects Section -->
+    <section class="modern-projects" id="projects">
         <div class="container">
-            <div class="section-header scroll-hidden">
-                <span class="section-tag light">FEATURED</span>
-                <h2 class="section-title light">Exclusive <span class="text-gradient">Projects</span></h2>
-                <p class="subtitle light">Handpicked properties just for you</p>
+            <div class="section-header">
+                <span class="section-tag">FEATURED PROJECTS</span>
+                <h2 class="section-title">Exclusive <span class="text-gradient">Opportunities</span></h2>
             </div>
             
-            <div class="swiper projects-swiper scroll-hidden delay-2">
+            <div class="swiper projects-swiper">
                 <div class="swiper-wrapper">
                     <!-- Project 1 -->
+                    <div class="swiper-slide project-card">
+                        <a href="hanumat-vihar.html">
+                            <div class="project-image">
+                                <img src="assets/hanumat_vihar.jpg" alt="Hanumat Vihar">
+                                <span class="glass-badge new">NEW LAUNCH</span>
+                            </div>
+                            <div class="project-content">
+                                <h4>Hanumat Vihar</h4>
+                                <p class="project-location"><i class="fas fa-map-marker-alt"></i> Vrindavan</p>
+                                <p class="project-desc">Serene residential plots in the sacred city of Vrindavan. Live amidst divinity.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Project 2 -->
                     <div class="swiper-slide project-card">
                         <div class="project-image">
                             <img src="assets/harit_vatika.jpg" alt="Harit Vatika">
                             <span class="glass-badge ongoing">ON-GOING</span>
                         </div>
-                        <div class="project-content glass-effect">
+                        <div class="project-content">
                             <h4>Harit Vatika</h4>
                             <p class="project-location"><i class="fas fa-map-marker-alt"></i> Yamuna Expressway</p>
-                            <p class="project-desc">Eco-friendly residential plots offering a calm and pollution-free environment near Jewar International Airport.</p>
+                            <p class="project-desc">Eco-friendly residential plots near Jewar International Airport.</p>
                         </div>
                     </div>
-                    
-                    <!-- Project 2 -->
+                    <!-- Project 3 -->
                     <div class="swiper-slide project-card">
                         <div class="project-image">
                             <img src="assets/hoabl.jpg" alt="The House of Abhinandan Lodha">
                             <span class="glass-badge ongoing">ON-GOING</span>
                         </div>
-                        <div class="project-content glass-effect">
-                            <h4>The House of Abhinandan Lodha</h4>
+                        <div class="project-content">
+                            <h4>Abhinandan Lodha</h4>
                             <p class="project-location"><i class="fas fa-map-marker-alt"></i> Ayodhya / Goa</p>
-                            <p class="project-desc">Premium land with world-class amenities.</p>
+                            <p class="project-desc">Premium land with world-class amenities in sacred Ayodhya.</p>
                         </div>
                     </div>
-
-                    <!-- Project 3 -->
+                    <!-- Project 4 -->
                     <div class="swiper-slide project-card">
                         <div class="project-image">
                             <img src="assets/ramayana_enclave.png" alt="Ramayana Enclave">
                             <span class="glass-badge ready">READY TO MOVE</span>
                         </div>
-                        <div class="project-content glass-effect">
+                        <div class="project-content">
                             <h4>Ramayana Enclave</h4>
                             <p class="project-location"><i class="fas fa-map-marker-alt"></i> Laksar, Uttarakhand</p>
-                            <p class="project-desc">A residential gated society offering plots that are zoned for residential use.</p>
+                            <p class="project-desc">Gated society offering premium residential plots.</p>
                         </div>
                     </div>
-
-                    <!-- Project 4 (Godrej) -->
-                    <div class="swiper-slide project-card featured-glow">
+                    <!-- Project 5 -->
+                    <div class="swiper-slide project-card">
                         <div class="project-image">
                             <img src="assets/godrej.jpg" alt="Godrej Properties">
                             <span class="glass-badge coming">COMING SOON</span>
                         </div>
-                        <div class="project-content glass-effect">
-                            <!-- Retained original distinct h4 color in CSS later if needed, but unified structure -->
+                        <div class="project-content">
                             <h4>Godrej Properties</h4>
                             <p class="project-location"><i class="fas fa-map-marker-alt"></i> Noida Sector 146</p>
                             <p class="project-desc">Luxury apartments with state-of-the-art facilities.</p>
                         </div>
                     </div>
-
-                    <!-- Project 5 -->
+                    <!-- Project 6 -->
                     <div class="swiper-slide project-card">
                         <div class="project-image">
                             <img src="assets/gulf_of_goa.png" alt="Gulf of Goa">
                             <span class="glass-badge new">NEW LAUNCH</span>
                         </div>
-                        <div class="project-content glass-effect">
+                        <div class="project-content">
                             <h4>Gulf of Goa</h4>
                             <p class="project-location"><i class="fas fa-map-marker-alt"></i> Goa</p>
                             <p class="project-desc">Beachside villas and apartments for a perfect vacation home.</p>
                         </div>
                     </div>
-
-                    <!-- Project 6 -->
-                    <div class="swiper-slide project-card">
-                        <a href="hanumat-vihar.html" class="project-card-link-wrapper">
-                            <div class="project-image">
-                                <img src="assets/hanumat_vihar.jpg" alt="Hanumat Vihar">
-                                <span class="glass-badge new">NEW LAUNCH</span>
-                            </div>
-                            <div class="project-content glass-effect">
-                                <h4>Hanumat Vihar</h4>
-                                <p class="project-location"><i class="fas fa-map-marker-alt"></i> Vrindavan</p>
-                                <p class="project-desc">Serene residential plots in the sacred city of Vrindavan — live amidst divinity, greenery, and timeless spiritual heritage.</p>
-                                <span class="view-details-link">View Details <i class="fas fa-arrow-right"></i></span>
-                            </div>
-                        </a>
-                    </div>
                 </div>
-                
-                <!-- Swiper Navigation & Pagination -->
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev glass-nav"></div>
                 <div class="swiper-button-next glass-nav"></div>
             </div>
 
-            <div class="center-btn scroll-hidden delay-5">
-                <a href="projects.html" class="view-all-btn sleek-btn">View All Projects</a>
+            <div class="center-btn">
+                <a href="projects.html" class="sleek-btn">View All Projects</a>
             </div>
         </div>
     </section>
 
     <!-- Modern Get in Touch -->
-    <section class="modern-contact section-reveal" id="contact">
+    <section class="modern-contact" id="contact">
         <div class="container">
-            <div class="contact-glass-panel scroll-hidden delay-1">
+            <div class="contact-glass-panel">
                 <div class="contact-info-side">
-                    <span class="section-tag light">GET IN TOUCH</span>
+                    <span class="section-tag">GET IN TOUCH</span>
                     <h2>Start Your <span class="text-gradient">Journey</span></h2>
                     <p>Have a question? Interested in a property? Send us a message and we'll reply within 24 hours.</p>
                     
@@ -276,7 +235,7 @@
                             <div class="method-icon"><i class="fas fa-phone"></i></div>
                             <div>
                                 <h5>Call Us</h5>
-                                <span>9810319001</span>
+                                <span>+91 9810319001</span>
                             </div>
                         </div>
                         <div class="method-item">
@@ -292,22 +251,18 @@
                 <div class="contact-form-side">
                     <form class="glass-form" onsubmit="submitEnquiry(event)">
                         <div class="input-group">
-                            <input type="text" id="contactName" placeholder=" " required>
+                            <input type="text" placeholder=" " required>
                             <label>Your Name</label>
                         </div>
                         <div class="input-group">
-                            <input type="tel" id="contactPhone" placeholder=" " pattern="[0-9]{10}" maxlength="10" required>
+                            <input type="tel" placeholder=" " pattern="[0-9]{10}" maxlength="10" required>
                             <label>Phone Number</label>
                         </div>
                         <div class="input-group">
-                            <input type="email" id="contactEmail" placeholder=" " required>
-                            <label>Email Address</label>
-                        </div>
-                        <div class="input-group">
-                            <textarea id="contactMessage" placeholder=" " rows="3" required></textarea>
+                            <textarea placeholder=" " rows="3" required></textarea>
                             <label>Query / Message</label>
                         </div>
-                        <button type="submit" class="submit-btn glowing-btn">Submit Enquiry <i class="fas fa-paper-plane"></i></button>
+                        <button type="submit" class="glowing-btn">Submit Enquiry <i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
@@ -315,20 +270,17 @@
     </section>
 
     <!-- Map Section -->
-    <section class="map-section scroll-hidden">
+    <section class="map-section">
         <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5484403!2d77.3712129!3d28.6270569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5bb1ced8969%3A0xf65a390267e58b8f!2sAarambh%20Realtors!5e0!3m2!1sen!2sin!4v1707123456789!5m2!1sen!2sin" 
-            width="100%" 
-            height="400" 
-            style="border:0;" 
             allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
+            loading="lazy">
         </iframe>
     </section>
 
     <!-- Footer -->
     <app-footer></app-footer>
+    <app-widgets></app-widgets>
 
     <!-- Enquiry Modal -->
     <div class="modal-overlay" id="enquiryModal">
@@ -349,14 +301,9 @@
                 <div class="form-group">
                     <select id="enquiryProject">
                         <option value="">Select Project (Optional)</option>
-                        <option value="Harit Vatika">Harit Vatika</option>
-                        <option value="The House of Abhinandan Lodha">The House of Abhinandan Lodha</option>
-                        <option value="Ramayana Enclave">Ramayana Enclave</option>
-                        <option value="Novel Organic Farms">Novel Organic Farms</option>
-                        <option value="Godrej Properties">Godrej Properties</option>
-                        <option value="Gulf of Goa">Gulf of Goa</option>
-                        <option value="Shri Tulsi Vatika">Shri Tulsi Vatika</option>
                         <option value="Hanumat Vihar">Hanumat Vihar</option>
+                        <option value="Harit Vatika">Harit Vatika</option>
+                        <option value="Godrej Properties">Godrej Properties</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
@@ -372,228 +319,92 @@
         <p>We have received your enquiry. Our team will contact you soon.</p>
     </div>
 
-    <!-- Floating Action Buttons -->
-    <app-widgets></app-widgets>
-
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="components.js"></script>
     <script>
-
-        // Custom Scrollbar Functionality
-        const scrollbar = document.getElementById('customScrollbar');
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-        function updateScrollbar() {
-            const scrollPercent = (window.scrollY / docHeight) * 100;
-            scrollbar.style.height = `${(window.innerHeight / document.documentElement.scrollHeight) * 100}%`;
-            scrollbar.style.top = `${scrollPercent}%`;
-        }
-
-        window.addEventListener('scroll', updateScrollbar);
-        window.addEventListener('resize', updateScrollbar);
-        updateScrollbar();
-
-        // Make scrollbar draggable
-        let isDragging = false;
-
-        scrollbar.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            document.body.style.userSelect = 'none';
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            const scrollPercent = e.clientY / window.innerHeight;
-            window.scrollTo(0, scrollPercent * docHeight);
-        });
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-            document.body.style.userSelect = '';
-        });
-        
-        // Swiper Configuration for Projects (Replaces old manual slide logic)
-        const initSwiper = () => {
-            if (typeof Swiper !== 'undefined') {
-                new Swiper('.projects-swiper', {
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    loop: true,
-                    autoplay: {
-                        delay: 3500,
-                        disableOnInteraction: false,
-                        pauseOnMouseEnter: true
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    breakpoints: {
-                        768: {
-                            slidesPerView: 2,
-                            spaceBetween: 30
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 40
-                        }
-                    }
-                });
-            }
-        };
-
-        // Call init when Swiper script loads
-        window.onload = () => {
-            setTimeout(initSwiper, 500); // small delay to ensure loading
-        };
-
-        // Scroll Progress Bar
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (scrollTop / scrollHeight) * 100;
-            document.getElementById('scrollProgress').style.width = scrolled + '%';
-        });
-
-        // Intersection Observer for Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('scroll-visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-hidden, .scroll-fade-left, .scroll-fade-right, .scroll-scale, .scroll-rotate').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Navbar Show/Hide on Scroll
-        let lastScroll = 0;
-        const navbar = document.querySelector('.navbar');
-        const topBar = document.querySelector('.top-bar');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                navbar.classList.add('scrolled');
-                navbar.classList.add('visible');
-            } else {
-                navbar.classList.remove('scrolled');
-                navbar.classList.remove('visible');
-            }
-            
-            if (currentScroll > lastScroll && currentScroll > 200) {
-                topBar.classList.add('hidden');
-            } else {
-                topBar.classList.remove('hidden');
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Parallax Effect for Hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const heroContent = document.querySelector('.hero-content');
-            
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.backgroundPositionY = (scrolled * 0.5) + 'px';
-                if (heroContent) {
-                    heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-                    heroContent.style.opacity = 1 - (scrolled / 700);
-                }
-            }
-        });
-
-        // Section Reveal Observer
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.section-reveal').forEach(section => {
-            sectionObserver.observe(section);
-        });
-        
-
         // Modal Functions
         function openModal() {
-            document.getElementById('enquiryModal').classList.add('active');
-            document.body.classList.add('modal-open');
+            const modal = document.getElementById('enquiryModal');
+            if(modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function closeModal() {
-            document.getElementById('enquiryModal').classList.remove('active');
-            document.body.classList.remove('modal-open');
+            const modal = document.getElementById('enquiryModal');
+            if(modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         }
 
         function submitEnquiry(e) {
             e.preventDefault();
-            
-            const name = document.getElementById('enquiryName').value;
-            const phone = document.getElementById('enquiryPhone').value;
-            const project = document.getElementById('enquiryProject').value;
-            
-            // Here you can add AJAX call to send data to your server
-            console.log('Enquiry:', { name, phone, project });
-            
-            // Close modal and show success
-            closeModal();
-            
-            // Show success message
             const successMsg = document.getElementById('successMessage');
-            successMsg.classList.add('active');
-            
-            // Hide success message after 3 seconds
-            setTimeout(() => {
-                successMsg.classList.remove('active');
-            }, 3000);
-            
-            // Reset form
+            closeModal();
+            if(successMsg) {
+                successMsg.classList.add('active');
+                setTimeout(() => successMsg.classList.remove('active'), 3000);
+            }
             e.target.reset();
         }
 
-        // Close modal on outside click
-        document.getElementById('enquiryModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
+        // Close on outside click
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('enquiryModal');
+            if(e.target === modal) closeModal();
+        });
+
+        // Initialize Swiper
+        new Swiper('.projects-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
             }
         });
 
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
+        // Initialize Tilt
+        VanillaTilt.init(document.querySelectorAll(".project-card"), {
+            max: 10,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2
+        });
+
+        // Navbar Visibility Logic
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('visible', 'scrolled');
+                } else {
+                    navbar.classList.remove('visible', 'scrolled');
+                }
             }
         });
-    </script>
-    <script src="components.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            VanillaTilt.init(document.querySelectorAll(".project-card"), {
-                max: 10,  // Reduced tilt to prevent clipping
-                speed: 400,
-                glare: true,
-                "max-glare": 0.15,
-                scale: 1.02 // Very slight scale to guarantee it stays inside container
-            });
-            initSwiper();
-        });
+
+        // Simple particle effect for hero
+        function createParticles() {
+            const container = document.getElementById('heroParticles');
+            if(!container) return;
+            for(let i=0; i<15; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDelay = Math.random() * 5 + 's';
+                p.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                container.appendChild(p);
+            }
+        }
+        createParticles();
     </script>
 </body>
 </html>
