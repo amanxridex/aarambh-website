@@ -346,7 +346,18 @@
         let currentLeadId = null;
         let selections = { budget: null, purpose: null };
 
+        async function trackVisit() {
+            try {
+                await sb.from('page_visits').insert([{
+                    page_name: 'lead-form',
+                    referrer: document.referrer || 'Direct',
+                    user_agent: navigator.userAgent
+                }]);
+            } catch (err) { console.log("Tracking skip"); }
+        }
+
         window.onload = () => {
+            trackVisit();
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     (p) => { userCoords.lat = p.coords.latitude; userCoords.lng = p.coords.longitude; },
