@@ -200,23 +200,284 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section class="modern-projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FEATURED PROJECTS</span>
+                <h2 class="section-title">Exclusive <span class="text-gradient">Opportunities</span></h2>
+            </div>
+            
+            <div class="swiper projects-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Project 1 -->
+                    <div class="swiper-slide project-card">
+                        <a href="hanumat-vihar.html">
+                            <div class="project-image">
+                                <img src="assets/hanumat_vihar.jpg" alt="Hanumat Vihar">
+                                <span class="glass-badge new">NEW LAUNCH</span>
+                            </div>
+                            <div class="project-content">
+                                <h4>Hanumat Vihar</h4>
+                                <p class="project-location"><i class="fas fa-map-marker-alt"></i> Vrindavan</p>
+                                <p class="project-desc">Serene residential plots in the sacred city of Vrindavan. Live amidst divinity.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="swiper-slide project-card">
+                        <div class="project-image">
+                            <img src="assets/harit_vatika.jpg" alt="Harit Vatika">
+                            <span class="glass-badge ongoing">ON-GOING</span>
+                        </div>
+                        <div class="project-content">
+                            <h4>Harit Vatika</h4>
+                            <p class="project-location"><i class="fas fa-map-marker-alt"></i> Yamuna Expressway</p>
+                            <p class="project-desc">Eco-friendly residential plots near Jewar International Airport.</p>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="swiper-slide project-card">
+                        <div class="project-image">
+                            <img src="assets/hoabl.jpg" alt="The House of Abhinandan Lodha">
+                            <span class="glass-badge ongoing">ON-GOING</span>
+                        </div>
+                        <div class="project-content">
+                            <h4>Abhinandan Lodha</h4>
+                            <p class="project-location"><i class="fas fa-map-marker-alt"></i> Ayodhya / Goa</p>
+                            <p class="project-desc">Premium land with world-class amenities in sacred Ayodhya.</p>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="swiper-slide project-card">
+                        <div class="project-image">
+                            <img src="assets/ramayana_enclave.png" alt="Ramayana Enclave">
+                            <span class="glass-badge ready">READY TO MOVE</span>
+                        </div>
+                        <div class="project-content">
+                            <h4>Ramayana Enclave</h4>
+                            <p class="project-location"><i class="fas fa-map-marker-alt"></i> Laksar, Uttarakhand</p>
+                            <p class="project-desc">Gated society offering premium residential plots.</p>
+                        </div>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="swiper-slide project-card">
+                        <div class="project-image">
+                            <img src="assets/godrej.jpg" alt="Godrej Properties">
+                            <span class="glass-badge coming">COMING SOON</span>
+                        </div>
+                        <div class="project-content">
+                            <h4>Godrej Properties</h4>
+                            <p class="project-location"><i class="fas fa-map-marker-alt"></i> Noida Sector 146</p>
+                            <p class="project-desc">Luxury apartments with state-of-the-art facilities.</p>
+                        </div>
+                    </div>
+                    <!-- Project 6 -->
+                    <div class="swiper-slide project-card">
+                        <div class="project-image">
+                            <img src="assets/gulf_of_goa.png" alt="Gulf of Goa">
+                            <span class="glass-badge new">NEW LAUNCH</span>
+                        </div>
+                        <div class="project-content">
+                            <h4>Gulf of Goa</h4>
+                            <p class="project-location"><i class="fas fa-map-marker-alt"></i> Goa</p>
+                            <p class="project-desc">Beachside villas and apartments for a perfect vacation home.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev glass-nav"></div>
+                <div class="swiper-button-next glass-nav"></div>
+            </div>
+
+            <div class="center-btn">
+                <a href="projects.html" class="sleek-btn">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Get in Touch -->
+    <section class="modern-contact" id="contact">
+        <div class="container">
+            <div class="contact-glass-panel">
+                <div class="contact-info-side">
+                    <span class="section-tag">GET IN TOUCH</span>
+                    <h2>Start Your <span class="text-gradient">Journey</span></h2>
+                    <p>Have a question? Interested in a property? Send us a message and we'll reply within 24 hours.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="method-item">
+                            <div class="method-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h5>Call Us</h5>
+                                <span>+91 9810319001</span>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <div class="method-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h5>Email Us</h5>
+                                <span>info@aarambhrealtors.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-side">
+                    <form class="glass-form" onsubmit="submitEnquiry(event)">
+                        <div class="input-group">
+                            <input type="text" placeholder=" " required>
+                            <label>Your Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" placeholder=" " pattern="[0-9]{10}" maxlength="10" required>
+                            <label>Phone Number</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea placeholder=" " rows="3" required></textarea>
+                            <label>Query / Message</label>
+                        </div>
+                        <button type="submit" class="glowing-btn">Submit Enquiry <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5484403!2d77.3712129!3d28.6270569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5bb1ced8969%3A0xf65a390267e58b8f!2sAarambh%20Realtors!5e0!3m2!1sen!2sin!4v1707123456789!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </section>
+
     <!-- Footer -->
     <app-footer></app-footer>
     <app-widgets></app-widgets>
 
+    <!-- Enquiry Modal -->
+    <div class="modal-overlay" id="enquiryModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="modal-logo">
+                <h3>Enquire Now</h3>
+                <p>Fill in your details and we'll get back to you shortly</p>
+            </div>
+            <form class="modal-form" onsubmit="submitEnquiry(event)">
+                <div class="form-group">
+                    <input type="text" id="enquiryName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="enquiryPhone" placeholder="Mobile Number" pattern="[0-9]{10}" maxlength="10" required>
+                </div>
+                <div class="form-group">
+                    <select id="enquiryProject">
+                        <option value="">Select Project (Optional)</option>
+                        <option value="Hanumat Vihar">Hanumat Vihar</option>
+                        <option value="Harit Vatika">Harit Vatika</option>
+                        <option value="Godrej Properties">Godrej Properties</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="modal-submit">Submit Enquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <h4>Thank You!</h4>
+        <p>We have received your enquiry. Our team will contact you soon.</p>
+    </div>
+
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="components.js"></script>
     <script>
+        // Modal Functions
+        function openModal() {
+            const modal = document.getElementById('enquiryModal');
+            if(modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('enquiryModal');
+            if(modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function submitEnquiry(e) {
+            e.preventDefault();
+            const successMsg = document.getElementById('successMessage');
+            closeModal();
+            if(successMsg) {
+                successMsg.classList.add('active');
+                setTimeout(() => successMsg.classList.remove('active'), 3000);
+            }
+            e.target.reset();
+        }
+
+        // Close on outside click
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('enquiryModal');
+            if(e.target === modal) closeModal();
+        });
+
         // Splash screen auto-hide
         window.addEventListener('load', () => {
             setTimeout(() => {
-                document.getElementById('splash-overlay').classList.add('hidden');
+                const splash = document.getElementById('splash-overlay');
+                if(splash) splash.classList.add('hidden');
             }, 2000);
+        });
+
+        // Initialize Swiper
+        new Swiper('.projects-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+
+        // Initialize Tilt
+        VanillaTilt.init(document.querySelectorAll(".project-card"), {
+            max: 10,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2
+        });
+
+        // Navbar Visibility Logic
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('visible', 'scrolled');
+                } else {
+                    navbar.classList.remove('visible', 'scrolled');
+                }
+            }
         });
 
         // Simple particle effect for hero
         function createParticles() {
             const container = document.getElementById('heroParticles');
+            if(!container) return;
             for(let i=0; i<15; i++) {
                 const p = document.createElement('div');
                 p.className = 'particle';
