@@ -1,14 +1,13 @@
 class AppNavbar extends HTMLElement {
     connectedCallback() {
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const isDarkTheme = document.body.classList.contains('dark-theme'); // just in case
         
         this.innerHTML = `
         <div class="top-bar">
             <div class="container">
                 <div class="top-bar-left">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>172/B 7th floor, Tower A, The Corenthum, Sector 62, Noida, Uttar Pradesh, 201309</span>
+                    <span>172/B 7th floor, Tower A, The Corenthum, Sector 62, Noida, UP</span>
                 </div>
                 <div class="top-bar-right">
                     <a href="tel:9810319001"><i class="fas fa-phone"></i> 9810319001</a>
@@ -17,7 +16,6 @@ class AppNavbar extends HTMLElement {
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
-                    <a href="#" class="enquire-btn" onclick="if(typeof openModal === 'function') openModal(); return false;">Enquire Now</a>
                 </div>
             </div>
         </div>
@@ -27,80 +25,76 @@ class AppNavbar extends HTMLElement {
                 <a href="home.html" class="logo">
                     <img src="assets/logo-ar.png" alt="Aarambh Realtors">
                 </a>
-                <ul class="nav-links">
+                
+                <ul class="nav-links" id="navLinks">
                     <li><a href="home.html" class="${currentPath === 'home.html' ? 'active' : ''}">Home</a></li>
                     <li><a href="about.html" class="${currentPath === 'about.html' ? 'active' : ''}">About Us</a></li>
                     <li><a href="home.html#services">Services</a></li>
                     <li><a href="projects.html" class="${currentPath === 'projects.html' ? 'active' : ''}">Projects</a></li>
                     <li><a href="contact.html" class="${currentPath === 'contact.html' ? 'active' : ''}">Contact</a></li>
+                    <li class="mobile-only"><a href="#" class="enquire-btn-nav" onclick="openModal()">Enquire Now</a></li>
                 </ul>
-                <button class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+
+                <div class="nav-actions">
+                    <a href="#" class="enquire-btn-desktop" onclick="openModal()">Enquire Now</a>
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </nav>
         `;
 
-        this.initSmartHeader();
+        this.initNavbarLogic();
     }
 
-    initSmartHeader() {
-        let lastScroll = 0;
+    initNavbarLogic() {
+        const menuToggle = this.querySelector('#menuToggle');
+        const navLinks = this.querySelector('#navLinks');
         const navbar = this.querySelector('.navbar');
         const topBar = this.querySelector('.top-bar');
-        
+        let lastScroll = 0;
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
             
+            // Background & Height
             if (currentScroll > 50) {
-                navbar.classList.add('scrolled', 'visible');
+                navbar.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrolled', 'visible');
+                navbar.classList.remove('scrolled');
             }
             
-            // Smart Sticky Logic: Hide on scroll down, show on scroll up
-            if (currentScroll > lastScroll && currentScroll > 200) {
+            // Smart Hide/Show
+            if (currentScroll > lastScroll && currentScroll > 400) {
                 // Scrolling down
+                navbar.classList.add('nav-hidden');
                 if(topBar) topBar.classList.add('hidden');
-                navbar.style.transform = 'translateY(-100%)';
             } else {
                 // Scrolling up
+                navbar.classList.remove('nav-hidden');
                 if(topBar) topBar.classList.remove('hidden');
-                navbar.style.transform = 'translateY(0)';
             }
             
             lastScroll = currentScroll;
         });
-
-        // Add CSS for Smart Header smoothly sliding
-        if(!document.getElementById('smart-header-css')) {
-            const style = document.createElement('style');
-            style.id = 'smart-header-css';
-            style.innerHTML = `
-                app-navbar {
-                    position: sticky;
-                    top: 0;
-                    z-index: 1000;
-                    display: block;
-                }
-                .transition-navbar {
-                    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, padding 0.3s ease;
-                }
-                .top-bar {
-                    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s ease, padding 0.3s ease;
-                }
-                .top-bar.hidden {
-                    transform: translateY(-100%);
-                    height: 0;
-                    padding-top: 0;
-                    padding-bottom: 0;
-                    overflow: hidden;
-                }
-            `;
-            document.head.appendChild(style);
-        }
     }
 }
 customElements.define('app-navbar', AppNavbar);
@@ -108,34 +102,51 @@ customElements.define('app-navbar', AppNavbar);
 class AppFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-        <footer class="footer scroll-hidden">
+        <footer class="footer">
             <div class="container">
-                <div class="footer-content">
-                    <div class="footer-brand scroll-fade-left">
+                <div class="footer-grid">
+                    <div class="footer-col brand-col">
                         <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="footer-logo">
-                        <p>Building trust, delivering dreams. Your trusted real estate partner.</p>
+                        <p>Building trust, delivering dreams. Your premier partner in luxury real estate across India.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
-                    <div class="footer-links scroll-hidden delay-1">
+                    
+                    <div class="footer-col">
                         <h4>Quick Links</h4>
                         <ul>
                             <li><a href="home.html">Home</a></li>
                             <li><a href="about.html">About Us</a></li>
-                            <li><a href="home.html#services">Services</a></li>
                             <li><a href="projects.html">Projects</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
                         </ul>
                     </div>
-                    <div class="footer-contact scroll-fade-right">
-                        <h4>Contact</h4>
-                        <p><i class="fas fa-phone"></i> 9810319001</p>
-                        <p><i class="fas fa-envelope"></i> info@aarambhrealtors.com</p>
+
+                    <div class="footer-col">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><a href="home.html#services">Residential</a></li>
+                            <li><a href="home.html#services">Commercial</a></li>
+                            <li><a href="home.html#services">Farmhouses</a></li>
+                            <li><a href="home.html#services">Premium Plots</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Contact Us</h4>
+                        <div class="footer-contact-info">
+                            <p><i class="fas fa-phone-alt"></i> +91 9810319001</p>
+                            <p><i class="fas fa-envelope"></i> info@aarambhrealtors.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Sector 62, Noida, UP</p>
+                        </div>
                     </div>
                 </div>
-                <div class="footer-bottom scroll-hidden delay-2">
-                    <div class="footer-social" style="display:flex; gap:10px;">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                    <p>&copy; ${new Date().getFullYear()} Aarambh Realtors. All Rights Reserved.</p>
+                
+                <div class="footer-bottom">
+                    <p>&copy; ${new Date().getFullYear()} Aarambh Realtors. Crafted for Excellence.</p>
                 </div>
             </div>
         </footer>

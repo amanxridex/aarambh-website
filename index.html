@@ -7,190 +7,226 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-18145753257');
     </script>
+    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Aarambh Realtors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Aarambh Realtors - Building Trust, Delivering Dreams</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Google Sans', sans-serif;
+        /* Splash Screen Overlay */
+        #splash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: #0a0e27;
-            height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            z-index: 9999;
+            transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
-        .splash-container {
-            text-align: center;
-            animation: fadeIn 0.5s ease;
+        #splash-overlay.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
         }
 
-        .logo-wrapper {
+        .splash-logo-container {
             position: relative;
-            display: inline-block;
+            margin-bottom: 30px;
         }
 
-        .splash-logo {
-            width: 200px;
-            height: 200px;
+        .splash-logo-img {
+            width: 150px;
+            height: 150px;
             background: white;
             border-radius: 50%;
             padding: 20px;
-            box-shadow: 0 0 60px rgba(255,82,82,0.3), 0 0 100px rgba(30,136,229,0.2);
-            animation: pulse 2s ease-in-out infinite, scaleIn 0.8s ease;
-            object-fit: contain;
+            box-shadow: 0 0 50px rgba(255,82,82,0.3);
+            animation: splashPulse 2s ease-in-out infinite;
         }
 
-        .splash-text {
-            margin-top: 30px;
-            color: white;
-            font-size: 24px;
-            font-weight: 500;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0;
-            animation: slideUp 0.8s ease 0.5s forwards;
+        @keyframes splashPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(255,82,82,0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 80px rgba(30,136,229,0.4); }
         }
 
-        .splash-subtext {
-            margin-top: 10px;
-            color: #9aa5b8;
-            font-size: 14px;
-            letter-spacing: 2px;
-            opacity: 0;
-            animation: slideUp 0.8s ease 0.7s forwards;
-        }
-
-        .loading-bar {
+        .splash-loader {
             width: 200px;
-            height: 3px;
+            height: 2px;
             background: rgba(255,255,255,0.1);
-            border-radius: 3px;
-            margin: 40px auto 0;
+            border-radius: 2px;
             overflow: hidden;
-            opacity: 0;
-            animation: fadeIn 0.5s ease 1s forwards;
         }
 
-        .loading-progress {
+        .splash-progress {
             width: 0%;
             height: 100%;
             background: linear-gradient(90deg, #ff5252, #1976d2);
-            border-radius: 3px;
-            animation: loadProgress 2.5s ease-in-out forwards;
+            animation: splashLoad 2s ease-in-out forwards;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes scaleIn {
-            0% { 
-                transform: scale(0.5); 
-                opacity: 0; 
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% { 
-                transform: scale(1); 
-                opacity: 1; 
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { 
-                box-shadow: 0 0 60px rgba(255,82,82,0.3), 0 0 100px rgba(30,136,229,0.2);
-            }
-            50% { 
-                box-shadow: 0 0 80px rgba(255,82,82,0.5), 0 0 120px rgba(30,136,229,0.4);
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes loadProgress {
+        @keyframes splashLoad {
             0% { width: 0%; }
             100% { width: 100%; }
-        }
-
-        /* Fade out animation */
-        .fade-out {
-            animation: fadeOut 0.5s ease forwards;
-        }
-
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .splash-logo {
-                width: 150px;
-                height: 150px;
-                padding: 15px;
-            }
-            
-            .splash-text {
-                font-size: 18px;
-            }
-            
-            .splash-subtext {
-                font-size: 12px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="splash-container" id="splash">
-        <div class="logo-wrapper">
-            <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="splash-logo">
+    <!-- Splash Screen -->
+    <div id="splash-overlay">
+        <div class="splash-logo-container">
+            <img src="assets/logo-ar.png" alt="Aarambh Realtors" class="splash-logo-img">
         </div>
-        
-        <h1 class="splash-text">Aarambh Realtors</h1>
-        <p class="splash-subtext">Building Trust, Delivering Dreams</p>
-        
-        <div class="loading-bar">
-            <div class="loading-progress"></div>
+        <div class="splash-loader">
+            <div class="splash-progress"></div>
         </div>
+        <p style="color: white; margin-top: 20px; font-weight: 500; letter-spacing: 2px; font-size: 14px;">PREPARING YOUR EXPERIENCE</p>
     </div>
 
-    <script>
-        // Redirect to main website after 2.5 seconds
-        setTimeout(() => {
-            document.getElementById('splash').classList.add('fade-out');
+    <!-- Navigation -->
+    <app-navbar></app-navbar>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        
+        <div class="hero-content">
+            <div class="logo-circle-wrapper">
+                <div class="rotating-border"></div>
+                <div class="rotating-border"></div>
+                <div class="rotating-border"></div>
+                <div class="logo-circle">
+                    <img src="assets/logo-ar.png" alt="Aarambh Realtors">
+                </div>
+            </div>
             
-            // Wait for fade out animation then redirect
+            <p class="tagline">YOUR TRUSTED REAL ESTATE PARTNER</p>
+            <h1>Building Trust,<br><span class="text-gradient">Delivering Dreams</span></h1>
+            <p class="categories">Residential | Commercial | Farmhouse | Plots</p>
+            <div class="hero-actions">
+                <a href="projects.html" class="explore-btn">Explore Projects</a>
+                <a href="#" class="learn-more-btn" onclick="openModal()">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="modern-about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-tag">PREMIUM REAL ESTATE</span>
+                    <h2 class="section-title">Where Luxury Meets <span class="text-gradient">Trust</span></h2>
+                    <p class="about-text">
+                        Aarambh Realtors is more than just a property consultancy. We are your dedicated partners in navigating the Indian real estate landscape. From premium residential towers to sprawling farmhouses, we bring you the best opportunities with unmatched transparency.
+                    </p>
+                    <div class="about-features">
+                        <div class="feat-item"><i class="fas fa-check-circle"></i> Verified Properties</div>
+                        <div class="feat-item"><i class="fas fa-check-circle"></i> Direct Developer Pricing</div>
+                        <div class="feat-item"><i class="fas fa-check-circle"></i> Expert Legal Support</div>
+                    </div>
+                    <a href="about.html" class="learn-more-btn">Read Our Story <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="about-visual">
+                    <div class="glass-card trust-card">
+                        <i class="fas fa-award"></i>
+                        <div class="card-info">
+                            <h3>10+ Years</h3>
+                            <p>Industry Excellence</p>
+                        </div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="card-info">
+                            <h3>500+</h3>
+                            <p>Satisfied Families</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bento -->
+    <section class="modern-services" id="services">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">OUR EXPERTISE</span>
+                <h2 class="section-title">Diverse Real Estate <span class="text-gradient">Solutions</span></h2>
+            </div>
+            <div class="bento-grid">
+                <div class="bento-card bento-wide">
+                    <div class="bento-icon"><i class="fas fa-city"></i></div>
+                    <div class="bento-content">
+                        <h4>Residential Projects</h4>
+                        <p>Luxury apartments and villas designed for modern living in prime locations.</p>
+                    </div>
+                </div>
+                <div class="bento-card">
+                    <div class="bento-icon"><i class="fas fa-store"></i></div>
+                    <div class="bento-content">
+                        <h4>Commercial Hubs</h4>
+                        <p>Strategic retail and office spaces for maximum ROI.</p>
+                    </div>
+                </div>
+                <div class="bento-card">
+                    <div class="bento-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="bento-content">
+                        <h4>Farmhouses</h4>
+                        <p>Your serene escape in the lap of nature.</p>
+                    </div>
+                </div>
+                <div class="bento-card bento-wide">
+                    <div class="bento-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <div class="bento-content">
+                        <h4>Premium Plots</h4>
+                        <p>Invest in land that grows with the future. High appreciation potential plots.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <app-footer></app-footer>
+    <app-widgets></app-widgets>
+
+    <!-- Scripts -->
+    <script src="components.js"></script>
+    <script>
+        // Splash screen auto-hide
+        window.addEventListener('load', () => {
             setTimeout(() => {
-                window.location.href = 'home.html';  // <-- CHANGED TO home.html
-            }, 500);
-        }, 2500);
+                document.getElementById('splash-overlay').classList.add('hidden');
+            }, 2000);
+        });
+
+        // Simple particle effect for hero
+        function createParticles() {
+            const container = document.getElementById('heroParticles');
+            for(let i=0; i<15; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDelay = Math.random() * 5 + 's';
+                p.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                container.appendChild(p);
+            }
+        }
+        createParticles();
     </script>
 </body>
 </html>

@@ -12,19 +12,29 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Shri Tulsi Vatika - Ultra Luxury Plots near Jewar Airport | Aarambh Realtors</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-:root{--s:#E8821A;--g:#C9A84C;--gl:#F0D080;--d:#05070a;--d2:#0a0e14;--d3:#0f1520;--d4:#161e2e;--c:#f8f9fa;--cd:#cbd5e1;--m:#94a3b8}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--s) var(--d2)}
-html::-webkit-scrollbar{width:6px}html::-webkit-scrollbar-track{background:var(--d2)}html::-webkit-scrollbar-thumb{background:var(--s);border-radius:3px}
-body{font-family:'DM Sans',sans-serif;background:var(--d);color:var(--c);overflow-x:hidden;line-height:1.6}
-#sp{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--s),var(--g));z-index:10000;width:0;transition:width .1s}
-.w{max-width:1280px;margin:0 auto;padding:0 30px}
+    <title>Shri Tulsi Vatika - Ultra Luxury Plots near Jewar Airport | Aarambh Realtors</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page Specific Styles */
+        :root{--s:#E8821A;--g:#C9A84C;--gl:#F0D080;--d:#05070a;--d2:#0a0e14;--d3:#0f1520;--d4:#161e2e;--c:#f8f9fa;--cd:#cbd5e1;--m:#94a3b8}
+        body{font-family:'DM Sans',sans-serif;background:var(--d);color:var(--c);overflow-x:hidden;line-height:1.6}
+        #sp{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--s),var(--g));z-index:10000;width:0;transition:width .1s}
+        .w{max-width:1280px;margin:0 auto;padding:0 30px}
+        
+        /* HERO */
+        .hero{position:relative;height:100vh;min-height:650px;display:flex;align-items:center;overflow:hidden;background: #000;}
+        .hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity: 0.6;}
+        .ho{position:absolute;inset:0;z-index:1;background: radial-gradient(circle at 70% 50%, transparent 0%, rgba(5,7,10,0.8) 70%), linear-gradient(to right, rgba(5,7,10,0.95) 30%, transparent 100%);}
+        .hc{position:relative;z-index:3;width:100%}
+    </style>
+</head>
+<body>
+    <app-navbar></app-navbar>
+    <div id="sp"></div>
 
 /* TOPBAR */
 .tb{background:var(--d2);border-bottom:1px solid rgba(255,255,255,0.05);padding:9px 0;font-size:12.5px;z-index:900;transition:transform .4s}
@@ -151,33 +161,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--d);color:var(--c);overflo
 </style>
 </head>
 <body>
-<div id="sp"></div>
-
-<div class="tb" id="tb">
-  <div class="w">
-    <div class="tbl"><i class="fas fa-map-marker-alt"></i><span>Yamuna Expressway, Near Jewar International Airport</span></div>
-    <div class="tbr">
-      <a href="tel:9891936275"><i class="fas fa-phone"></i> +91 9891936275</a>
-      <div class="soc">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-      <a href="#enq" class="pill">Request Pricing</a>
-    </div>
-  </div>
-</div>
-
-<nav class="nav" id="nv">
-  <div class="w">
-    <a href="index.html" class="nl"><img src="assets/logo-ar.png" alt="Aarambh Realtors"></a>
-    <ul class="nm">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html" class="on">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+    <app-navbar></app-navbar>
+    <div id="sp"></div>
 
 <section class="hero">
   <img src="assets/hero_placeholder.jpg" class="hv" alt="Luxury Background">
@@ -300,62 +285,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--d);color:var(--c);overflo
   </div>
 </div>
 
-<footer class="ft">
-  <div class="w">
-    <div class="fg">
-      <div>
-        <img src="assets/logo-ar.png" class="flo" alt="Logo">
-        <p style="color: var(--m); font-size: 14px">Aarambh Realtors is your trusted partner for premium land investments and residential solutions across the Yamuna Expressway corridor.</p>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="projects.html">Our Projects</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Head Office</h4>
-        <p style="color: var(--m); font-size: 14px; margin-bottom: 15px"><i class="fas fa-map-marker-alt" style="color: var(--s); margin-right: 10px"></i> 172/B 7th Floor, Tower A, The Corenthum, Sector 62, Noida</p>
-        <p style="color: var(--m); font-size: 14px"><i class="fas fa-envelope" style="color: var(--s); margin-right: 10px"></i> info@aarambhrealtors.com</p>
-      </div>
-    </div>
-    <div class="fbot">
-      <p style="color: var(--m); font-size: 12px">&copy; 2025 Aarambh Realtors. All rights reserved.</p>
-      <div style="display: flex; gap: 20px">
-        <a href="#" style="color: var(--m)"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" style="color: var(--m)"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<div class="flt">
-  <a href="https://wa.me/919891936275" class="fb wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  <a href="tel:9891936275" class="fb ph"><i class="fas fa-phone-alt"></i></a>
-</div>
-
+<app-footer></app-footer>
+<app-widgets></app-widgets>
+<script src="components.js"></script>
 <script>
 window.addEventListener('scroll',function(){
   var h=document.documentElement;
   document.getElementById('sp').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
 });
-
-var ls=0,tb=document.getElementById('tb'),nv=document.getElementById('nv');
-window.addEventListener('scroll',function(){
-  var c=window.pageYOffset;
-  tb.classList.toggle('hide',c>ls&&c>120);
-  nv.classList.toggle('sc',c>60);
-  ls=c;
-});
-
 var ro=new IntersectionObserver(function(e){
   e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('vs')})
 },{threshold:.1});
 document.querySelectorAll('.rv').forEach(function(el){ro.observe(el)});
-
 function sub(e){
   e.preventDefault();
   alert('Thank you! Our luxury specialist will contact you shortly.');
