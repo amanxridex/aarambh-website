@@ -379,18 +379,6 @@
             "max-glare": 0.2
         });
 
-        // Navbar Visibility Logic
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (navbar) {
-                if (window.scrollY > 100) {
-                    navbar.classList.add('visible', 'scrolled');
-                } else {
-                    navbar.classList.remove('visible', 'scrolled');
-                }
-            }
-        });
-
         // Simple particle effect for hero
         function createParticles() {
             const container = document.getElementById('heroParticles');
