@@ -40,11 +40,47 @@
             height: 100vh;
             height: -webkit-fill-available;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow: hidden; /* No scrolling allowed */
             background: radial-gradient(circle at top right, #1e2a4a, #0a0e27);
             padding: 15px;
+            gap: 20px;
+        }
+
+        .slider-container {
+            width: 100%;
+            max-width: 400px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 20px;
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+        }
+
+        .slider-track {
+            display: flex;
+            width: calc(100% * 4);
+            animation: slideLeft 10s linear infinite;
+        }
+
+        .slider-track img {
+            width: 25%;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        @keyframes slideLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .particles {
@@ -334,6 +370,15 @@
             <div class="check-icon"><i class="fas fa-check"></i></div>
             <h2 style="-webkit-text-fill-color: #fff;">Thank You!</h2>
             <p style="color: #9aa5b8; margin-top: 10px;">Redirecting to our premium properties...</p>
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <div class="slider-track">
+            <img src="assets/ad1 (1).png" alt="Ad 1">
+            <img src="assets/ad1 (2).png" alt="Ad 2">
+            <img src="assets/ad1 (1).png" alt="Ad 1">
+            <img src="assets/ad1 (2).png" alt="Ad 2">
         </div>
     </div>
 
