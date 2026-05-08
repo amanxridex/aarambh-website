@@ -65,7 +65,6 @@ class AppNavbar extends HTMLElement {
             });
         }
 
-        // Close menu on link click
         if(navLinks) {
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -79,21 +78,17 @@ class AppNavbar extends HTMLElement {
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
             
-            // Background & Height
             if (currentScroll > 50) {
-                navbar.classList.add('scrolled');
+                if(navbar) navbar.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrolled');
+                if(navbar) navbar.classList.remove('scrolled');
             }
             
-            // Smart Hide/Show
             if (currentScroll > lastScroll && currentScroll > 400) {
-                // Scrolling down
-                navbar.classList.add('nav-hidden');
+                if(navbar) navbar.classList.add('nav-hidden');
                 if(topBar) topBar.classList.add('hidden');
             } else {
-                // Scrolling up
-                navbar.classList.remove('nav-hidden');
+                if(navbar) navbar.classList.remove('nav-hidden');
                 if(topBar) topBar.classList.remove('hidden');
             }
             
@@ -401,7 +396,6 @@ customElements.define('app-widgets', AppWidgets);
 
 // Page Transitions Setup
 document.addEventListener('DOMContentLoaded', () => {
-    // Inject smooth transition CSS if not present
     if(!document.getElementById('page-transitions-css')) {
         const style = document.createElement('style');
         style.id = 'page-transitions-css';
@@ -417,30 +411,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(style);
     }
     
-    // Fade in on load
     setTimeout(() => {
         document.body.classList.add('page-loaded');
     }, 50);
 
-    // Fade out on link click (only for internal links)
     document.querySelectorAll('a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             const target = this.getAttribute('target');
             
-            if (href && href.startsWith('#')) return; // ignore hashes
-            if (href && href.startsWith('mailto')) return; // ignore mailto
-            if (href && href.startsWith('tel')) return; // ignore tel
-            if (target === '_blank') return; // ignore blank tabs
-            if (href === 'javascript:void(0);' || href === '#') return; // ignore triggers
+            if (!href || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('tel') || target === '_blank' || href === 'javascript:void(0);' || href === '#') return;
             
-            // It's a local page navigate
             e.preventDefault();
             document.body.classList.remove('page-loaded');
 
             setTimeout(() => {
                 window.location.href = href;
-            }, 400); // match transition duration
+            }, 400);
         });
     });
 });
