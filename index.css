@@ -843,6 +843,7 @@ app-navbar.nav-hidden {
     padding: 40px 20px;
     margin: 0 -20px; /* Counter container padding for shadow space */
     overflow: visible !important; /* Extremely important: fix tilt clipping */
+    padding-bottom: 60px !important;
 }
 /* Reusing Project Card Core CSS from original but cleaning it */
 .project-card {
@@ -2479,4 +2480,30 @@ app-navbar {
     .hero h1 {
         font-size: 36px !important;
     }
+}
+
+.projects-swiper .swiper-wrapper { align-items: stretch !important; }
+
+/* Bulletproof Swiper Layout Fixes */
+.projects-swiper .swiper-pagination {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 30px !important;
+}
+.projects-swiper {
+    padding-bottom: 20px !important;
+}
+.project-card {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.project-card > a {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1;
+}
+.project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
