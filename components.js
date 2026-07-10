@@ -399,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(!document.getElementById('page-transitions-css')) {
         const style = document.createElement('style');
         style.id = 'page-transitions-css';
-        style.innerHTML = \`
+        style.innerHTML = `
             body { 
                 opacity: 0; 
                 transition: opacity 0.4s ease-in-out;
@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body.page-loaded {
                 opacity: 1;
             }
-        \`;
+        `;
         document.head.appendChild(style);
     }
     
