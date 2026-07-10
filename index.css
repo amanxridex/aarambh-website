@@ -1220,7 +1220,7 @@ app-navbar.nav-hidden {
 
 /* Floating Buttons - Fixed Position */
 .floating-buttons {
-    position: relative;
+    position: fixed;
     right: 25px;
     bottom: 100px;
     display: flex;
