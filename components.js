@@ -155,11 +155,9 @@ class AppNavbar extends HTMLElement {
             }
             
             if (currentScroll > lastScroll && currentScroll > 400) {
-                if(navbar) navbar.classList.add('nav-hidden');
-                if(topBar) topBar.classList.add('hidden');
+                this.classList.add('nav-hidden');
             } else {
-                if(navbar) navbar.classList.remove('nav-hidden');
-                if(topBar) topBar.classList.remove('hidden');
+                this.classList.remove('nav-hidden');
             }
             
             lastScroll = currentScroll;
