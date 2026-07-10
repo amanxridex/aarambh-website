@@ -47,6 +47,73 @@ class AppNavbar extends HTMLElement {
         </nav>
         `;
 
+        if(!document.getElementById('navbar-mobile-css')) {
+            const style = document.createElement('style');
+            style.id = 'navbar-mobile-css';
+            style.innerHTML = `
+                @media (max-width: 991px) {
+                    .nav-links {
+                        position: fixed;
+                        top: 0;
+                        right: -100%;
+                        width: 280px;
+                        height: 100vh;
+                        background: rgba(10, 14, 39, 0.98);
+                        backdrop-filter: blur(15px);
+                        -webkit-backdrop-filter: blur(15px);
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 30px;
+                        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                        z-index: 1000;
+                        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .nav-links.active {
+                        right: 0 !important;
+                    }
+                    .menu-toggle {
+                        display: flex;
+                        z-index: 1001;
+                    }
+                    .menu-toggle.active span:nth-child(1) {
+                        transform: translateY(8px) rotate(45deg);
+                    }
+                    .menu-toggle.active span:nth-child(2) {
+                        opacity: 0;
+                    }
+                    .menu-toggle.active span:nth-child(3) {
+                        transform: translateY(-8px) rotate(-45deg);
+                    }
+                    .enquire-btn-desktop {
+                        display: none;
+                    }
+                    .top-bar-right a, .top-bar-right .social-icons {
+                        display: none;
+                    }
+                    .top-bar-right {
+                        justify-content: flex-end;
+                    }
+                    .navbar .container {
+                        padding: 0 15px;
+                    }
+                    .nav-links li {
+                        width: 100%;
+                        text-align: center;
+                    }
+                    .nav-links a {
+                        font-size: 20px;
+                        display: block;
+                        padding: 15px;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
         this.initNavbarLogic();
     }
 
