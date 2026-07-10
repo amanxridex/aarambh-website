@@ -50,8 +50,7 @@ class AppNavbar extends HTMLElement {
         if(!document.getElementById('navbar-mobile-css')) {
             const style = document.createElement('style');
             style.id = 'navbar-mobile-css';
-            style.innerHTML = 
-                app-navbar { display: block; position: sticky; top: 0; z-index: 1000; }`
+            style.innerHTML = `
                 @media (max-width: 991px) {
                     .nav-links {
                         position: fixed;
@@ -246,8 +245,7 @@ class AppFooter extends HTMLElement {
         if(!document.getElementById('footer-styles-css')) {
             const style = document.createElement('style');
             style.id = 'footer-styles-css';
-            style.innerHTML = 
-                app-navbar { display: block; position: sticky; top: 0; z-index: 1000; }`
+            style.innerHTML = `
                 .premium-footer {
                     background: #05081a;
                     padding: 100px 0 40px;
@@ -438,8 +436,7 @@ class AppWidgets extends HTMLElement {
         if(!document.getElementById('whatsapp-widget-css')) {
             const style = document.createElement('style');
             style.id = 'whatsapp-widget-css';
-            style.innerHTML = 
-                app-navbar { display: block; position: sticky; top: 0; z-index: 1000; }`
+            style.innerHTML = `
                 .widget-animations .float-btn {
                     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 }
@@ -472,8 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(!document.getElementById('page-transitions-css')) {
         const style = document.createElement('style');
         style.id = 'page-transitions-css';
-        style.innerHTML = 
-                app-navbar { display: block; position: sticky; top: 0; z-index: 1000; }`
+        style.innerHTML = `
             body { 
                 opacity: 0; 
                 transition: opacity 0.4s ease-in-out;
