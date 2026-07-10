@@ -50,7 +50,8 @@ class AppNavbar extends HTMLElement {
         if(!document.getElementById('navbar-mobile-css')) {
             const style = document.createElement('style');
             style.id = 'navbar-mobile-css';
-            style.innerHTML = `
+            style.innerHTML = 
+                app-navbar { display: block; position: sticky; top: 0; z-index: 1000; }`
                 @media (max-width: 991px) {
                     .nav-links {
                         position: fixed;
@@ -88,12 +89,15 @@ class AppNavbar extends HTMLElement {
                     .menu-toggle.active span:nth-child(3) {
                         transform: translateY(-8px) rotate(-45deg);
                     }
+                    
+                    .top-bar {
+                        display: none;
+                    }
+
                     .enquire-btn-desktop {
                         display: none;
                     }
-                    .top-bar-right a, .top-bar-right .social-icons {
-                        display: none;
-                    }
+                    
                     .top-bar-right {
                         justify-content: flex-end;
                     }
@@ -242,7 +246,8 @@ class AppFooter extends HTMLElement {
         if(!document.getElementById('footer-styles-css')) {
             const style = document.createElement('style');
             style.id = 'footer-styles-css';
-            style.innerHTML = `
+            style.innerHTML = 
+                app-navbar { display: block; position: sticky; top: 0; z-index: 1000; }`
                 .premium-footer {
                     background: #05081a;
                     padding: 100px 0 40px;
@@ -433,7 +438,8 @@ class AppWidgets extends HTMLElement {
         if(!document.getElementById('whatsapp-widget-css')) {
             const style = document.createElement('style');
             style.id = 'whatsapp-widget-css';
-            style.innerHTML = `
+            style.innerHTML = 
+                app-navbar { display: block; position: sticky; top: 0; z-index: 1000; }`
                 .widget-animations .float-btn {
                     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 }
@@ -466,7 +472,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if(!document.getElementById('page-transitions-css')) {
         const style = document.createElement('style');
         style.id = 'page-transitions-css';
-        style.innerHTML = `
+        style.innerHTML = 
+                app-navbar { display: block; position: sticky; top: 0; z-index: 1000; }`
             body { 
                 opacity: 0; 
                 transition: opacity 0.4s ease-in-out;

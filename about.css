@@ -116,7 +116,8 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 120px 20px 200px; /* Increased bottom padding for stats */
+    padding: 120px 20px 200px;
+    margin-top: 50px; /* Increased bottom padding for stats */
 }
 
 .hero-particles {
